@@ -121,7 +121,7 @@
         .hero-image-wrapper { position: relative; width: 100%; max-width: 450px; aspect-ratio: 1; }
         .dashed-ring { position: absolute; top: 0; left: 0; right: 0; bottom: 0; border: 1px dashed var(--accent-gold); border-radius: 50%; animation: spin 25s linear infinite; opacity: 0.3; }
         @keyframes spin { 100% { transform: rotate(360deg); } }
-        .hero-avatar { width: 85%; height: 85%; position: absolute; top: 7.5%; left: 7.5%; border-radius: 8px; object-fit: contain; background: var(--bg-tertiary); border: 2px solid var(--border-subtle); z-index: 1; box-shadow: 0 0 40px var(--glow-gold); padding: 1rem; }
+        .hero-avatar { width: 85%; height: 85%; position: absolute; top: 7.5%; left: 7.5%; border-radius: 50%; object-fit: cover; object-position: center top; border: 2px solid var(--border-subtle); z-index: 1; box-shadow: 0 0 40px var(--glow-gold); }
         .stat-badge { position: absolute; background: rgba(26,30,36,0.8); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid var(--border-subtle); padding: 0.6rem 1.2rem; border-radius: 30px; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--text-primary); display: flex; align-items: center; gap: 0.5rem; z-index: 2; box-shadow: 0 4px 20px rgba(0,0,0,0.4); white-space: nowrap; animation: float 6s ease-in-out infinite; }
         .stat-badge i { color: var(--accent-teal); }
         .badge-1 { top: 5%; right: -5%; animation-delay: 0s; }
