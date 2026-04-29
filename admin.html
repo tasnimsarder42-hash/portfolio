@@ -4,242 +4,488 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Admin Panel</title>
-    <script src="data.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg: #0A0C0F;
-            --surface: #111418;
-            --primary: #C9A84C;
-            --text: #F0EDE8;
-            --text-muted: #9A9590;
-            --border: rgba(201,168,76,0.2);
-        }
-        body {
-            font-family: system-ui, -apple-system, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            margin: 0;
-            padding: 2rem;
-            line-height: 1.5;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 1rem;
-            margin-bottom: 2rem;
-        }
-        h1, h2 { margin: 0; color: var(--primary); }
-        .card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-        .form-group {
-            margin-bottom: 1rem;
-        }
-        label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-        input, textarea {
-            width: 100%;
-            padding: 0.8rem;
-            background: var(--bg);
-            border: 1px solid var(--border);
-            color: var(--text);
-            border-radius: 4px;
-            box-sizing: border-box;
-            font-family: inherit;
-        }
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-        .btn {
-            background: var(--primary);
-            color: var(--bg);
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 1rem;
-            transition: 0.2s;
-        }
-        .btn:hover {
-            opacity: 0.9;
-            transform: translateY(-1px);
-        }
-        .btn-outline {
-            background: transparent;
-            color: var(--primary);
-            border: 1px solid var(--primary);
-        }
-        .list-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-        .item-row {
-            background: var(--bg);
-            border: 1px solid var(--border);
-            padding: 1rem;
-            border-radius: 4px;
-            margin-bottom: 1rem;
-            display: flex;
-            gap: 1rem;
-            align-items: flex-start;
-        }
-        .item-content { flex-grow: 1; display: flex; flex-direction: column; gap: 0.5rem; }
-        .remove-btn {
-            background: #ff4757;
-            color: white;
-            border: none;
-            padding: 0.5rem;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .instructions {
-            background: rgba(201,168,76,0.1);
-            padding: 1rem;
-            border-radius: 4px;
-            border-left: 4px solid var(--primary);
-            margin-bottom: 2rem;
-        }
+        :root { --bg: #0f172a; --card: #1e293b; --text: #f1f5f9; --accent: #38bdf8; --border: #334155; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); padding: 2rem; max-width: 1200px; margin: 0 auto; line-height: 1.5; }
+        h1 { border-bottom: 2px solid var(--accent); padding-bottom: 1rem; margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .section { background: var(--card); padding: 2rem; border-radius: 12px; border: 1px solid var(--border); margin-bottom: 2rem; }
+        h2 { margin-top: 0; color: var(--accent); font-size: 1.25rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-bottom: 1.5rem; }
+        .form-group { margin-bottom: 1.5rem; }
+        label { display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.9rem; color: #94a3b8; }
+        input, textarea, select { width: 100%; padding: 0.75rem; background: #0f172a; border: 1px solid var(--border); border-radius: 6px; color: white; font-family: inherit; box-sizing: border-box; }
+        textarea { height: 100px; resize: vertical; }
+        .btn { padding: 0.75rem 1.5rem; border-radius: 6px; border: none; cursor: pointer; font-weight: 600; transition: 0.2s; }
+        .btn-primary { background: var(--accent); color: #0f172a; }
+        .btn-primary:hover { background: #7dd3fc; }
+        .btn-danger { background: #ef4444; color: white; }
+        .btn-add { background: #10b981; color: white; margin-top: 1rem; }
+        .item-list { display: grid; gap: 1rem; }
+        .item-card { background: #0f172a; padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border); position: relative; }
+        .item-actions { position: absolute; top: 1rem; right: 1rem; display: flex; gap: 0.5rem; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        .save-bar { position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; padding: 1rem 2rem; border-top: 1px solid var(--border); text-align: center; box-shadow: 0 -10px 20px rgba(0,0,0,0.3); z-index: 100; }
+        .tabs { display: flex; gap: 0.5rem; margin-bottom: 2rem; overflow-x: auto; padding-bottom: 0.5rem; }
+        .tab-btn { padding: 0.5rem 1rem; background: var(--card); border: 1px solid var(--border); color: #94a3b8; cursor: pointer; border-radius: 6px; white-space: nowrap; }
+        .tab-btn.active { background: var(--accent); color: #0f172a; border-color: var(--accent); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .lang-dots { display: flex; gap: 0.5rem; align-items: center; }
+        .lang-dots input { width: 60px; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <div>
-                <h1>Portfolio Admin Panel</h1>
-                <p style="color: var(--text-muted); margin-top: 0.5rem;">Manage your website data visually.</p>
+
+    <h1>
+        Portfolio Admin Control
+        <button class="btn btn-primary" onclick="saveData()">Save & Download data.js</button>
+    </h1>
+
+    <div class="tabs" id="tabs-container">
+        <button class="tab-btn active" onclick="showTab('tab-personal')">Personal Info</button>
+        <button class="tab-btn" onclick="showTab('tab-experience')">Experience</button>
+        <button class="tab-btn" onclick="showTab('tab-skills')">Skills</button>
+        <button class="tab-btn" onclick="showTab('tab-portfolio')">Portfolio</button>
+        <button class="tab-btn" onclick="showTab('tab-education')">Education</button>
+        <button class="tab-btn" onclick="showTab('tab-others')">Languages & Volunteer</button>
+    </div>
+
+    <!-- PERSONAL INFO TAB -->
+    <div id="tab-personal" class="tab-content active">
+        <div class="section">
+            <h2>Basic Information</h2>
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" id="personal-name">
             </div>
-            <button class="btn" onclick="saveData()">💾 Save & Download</button>
+            <div class="form-group">
+                <label>Tagline</label>
+                <input type="text" id="personal-tagline">
+            </div>
+            <div class="form-group">
+                <label>Professional Summary (One sentence per line)</label>
+                <textarea id="personal-summary"></textarea>
+            </div>
         </div>
 
-        <div class="instructions">
-            <strong>How to update your website:</strong>
-            <ol style="margin-top: 0.5rem; margin-bottom: 0; padding-left: 1.5rem;">
-                <li>Edit your LinkedIn posts or Behance projects below.</li>
-                <li>Click <b>Save & Download</b> at the top right.</li>
-                <li>The browser will download a file named <code>data.js</code>.</li>
-                <li>Move this new <code>data.js</code> file into your <code>AntiGravity Ai Soft</code> folder, replacing the old one!</li>
-                <li>Push the changes to GitHub.</li>
-            </ol>
+        <div class="section">
+            <h2>Contact & Socials</h2>
+            <div class="grid-2">
+                <div class="form-group"><label>Email</label><input type="text" id="contact-email"></div>
+                <div class="form-group"><label>Phone (Display)</label><input type="text" id="contact-phone"></div>
+                <div class="form-group"><label>WhatsApp Number (Digits only)</label><input type="text" id="contact-whatsapp"></div>
+                <div class="form-group"><label>LinkedIn URL</label><input type="text" id="contact-linkedin"></div>
+                <div class="form-group"><label>Behance URL</label><input type="text" id="contact-behance"></div>
+            </div>
         </div>
 
-        <!-- LinkedIn Posts Section -->
-        <div class="card">
-            <div class="list-header">
-                <h2>LinkedIn Posts (Custom Cards)</h2>
-                <button class="btn btn-outline" onclick="addLinkedInPost()">+ Add Post</button>
-            </div>
-            <div id="linkedin-list"></div>
-        </div>
-
-        <!-- Behance Projects Section -->
-        <div class="card">
-            <div class="list-header">
-                <h2>Behance Projects</h2>
-                <button class="btn btn-outline" onclick="addBehanceProject()">+ Add Project</button>
-            </div>
-            <div id="behance-list"></div>
+        <div class="section">
+            <h2>Hero Badges (Top Right)</h2>
+            <div id="hero-badges-container" class="item-list"></div>
+            <button class="btn btn-add" onclick="addHeroBadge()">+ Add Hero Badge</button>
         </div>
     </div>
 
+    <!-- EXPERIENCE TAB -->
+    <div id="tab-experience" class="tab-content">
+        <div class="section">
+            <h2>Work Experience</h2>
+            <div id="experience-list" class="item-list"></div>
+            <button class="btn btn-add" onclick="addExperience()">+ Add Work Experience</button>
+        </div>
+    </div>
+
+    <!-- SKILLS TAB -->
+    <div id="tab-skills" class="tab-content">
+        <div class="section">
+            <h2>Skill Categories</h2>
+            <div id="skill-categories-list" class="item-list"></div>
+            <button class="btn btn-add" onclick="addSkillCategory()">+ Add Category</button>
+        </div>
+        <div class="section">
+            <h2>Proficiency Bars</h2>
+            <div id="proficiency-list" class="item-list"></div>
+            <button class="btn btn-add" onclick="addProficiency()">+ Add Bar</button>
+        </div>
+    </div>
+
+    <!-- PORTFOLIO TAB -->
+    <div id="tab-portfolio" class="tab-content">
+        <div class="section">
+            <h2>Featured Project (Nitex Section)</h2>
+            <div class="form-group"><label>Title</label><input type="text" id="feat-title"></div>
+            <div class="form-group"><label>Company/Date</label><input type="text" id="feat-company"></div>
+            <div class="form-group"><label>Status Badge</label><input type="text" id="feat-status"></div>
+            <div class="form-group"><label>Problem</label><textarea id="feat-problem"></textarea></div>
+            <div class="form-group"><label>Action</label><textarea id="feat-action"></textarea></div>
+            <div class="form-group"><label>Result</label><textarea id="feat-result"></textarea></div>
+            <div class="form-group"><label>Image Path</label><input type="text" id="feat-image"></div>
+        </div>
+        <div class="section">
+            <h2>LinkedIn Posts (Custom Cards)</h2>
+            <div id="linkedin-list" class="item-list"></div>
+            <button class="btn btn-add" onclick="addLinkedInPost()">+ Add LinkedIn Card</button>
+        </div>
+        <div class="section">
+            <h2>Behance Projects (Embeds)</h2>
+            <div id="behance-list" class="item-list"></div>
+            <button class="btn btn-add" onclick="addBehanceProject()">+ Add Behance ID</button>
+        </div>
+    </div>
+
+    <!-- EDUCATION TAB -->
+    <div id="tab-education" class="tab-content">
+        <div class="section">
+            <h2>Degrees</h2>
+            <div id="education-list" class="item-list"></div>
+            <button class="btn btn-add" onclick="addEducation()">+ Add Degree</button>
+        </div>
+        <div class="section">
+            <h2>Certifications</h2>
+            <div id="cert-list" class="item-list"></div>
+            <button class="btn btn-add" onclick="addCertification()">+ Add Certification</button>
+        </div>
+    </div>
+
+    <!-- OTHERS TAB -->
+    <div id="tab-others" class="tab-content">
+        <div class="section">
+            <h2>Languages</h2>
+            <div id="language-list" class="item-list"></div>
+            <button class="btn btn-add" onclick="addLanguage()">+ Add Language</button>
+        </div>
+        <div class="section">
+            <h2>Volunteer Work</h2>
+            <div id="volunteer-list" class="item-list"></div>
+            <button class="btn btn-add" onclick="addVolunteer()">+ Add Volunteer Work</button>
+        </div>
+    </div>
+
+    <div style="height: 100px;"></div> <!-- Spacer -->
+
+    <div class="save-bar">
+        <button class="btn btn-primary" onclick="saveData()">Save Changes & Download data.js</button>
+    </div>
+
+    <!-- Use the script from data.js as reference -->
+    <script src="data.js"></script>
     <script>
-        let currentData = { linkedinPosts: [], behanceProjects: [], featuredProject: {} };
-
-        // Load existing data
-        if (typeof PORTFOLIO_DATA !== 'undefined') {
-            currentData = JSON.parse(JSON.stringify(PORTFOLIO_DATA));
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
         }
 
-        function renderUI() {
-            // Render LinkedIn Posts
-            const lnContainer = document.getElementById('linkedin-list');
-            lnContainer.innerHTML = '';
-            currentData.linkedinPosts.forEach((post, index) => {
-                lnContainer.innerHTML += `
-                    <div class="item-row">
-                        <div class="item-content">
-                            <input type="text" placeholder="Date / Type (e.g., 'Recent Activity')" value="${escapeHtml(post.date || '')}" onchange="updateLN(${index}, 'date', this.value)">
-                            <textarea rows="3" placeholder="Post Text Summary" onchange="updateLN(${index}, 'text', this.value)">${escapeHtml(post.text || '')}</textarea>
-                            <input type="text" placeholder="LinkedIn URL" value="${escapeHtml(post.url || '')}" onchange="updateLN(${index}, 'url', this.value)">
-                        </div>
-                        <button class="remove-btn" onclick="removeLN(${index})">Delete</button>
+        function init() {
+            if (typeof PORTFOLIO_DATA === 'undefined') return alert("data.js not found!");
+            const d = PORTFOLIO_DATA;
+
+            // Personal
+            document.getElementById('personal-name').value = d.personal.name;
+            document.getElementById('personal-tagline').value = d.personal.tagline;
+            document.getElementById('personal-summary').value = d.personal.summaryLines.join('\n');
+            
+            // Contact
+            document.getElementById('contact-email').value = d.personal.contact.email;
+            document.getElementById('contact-phone').value = d.personal.contact.phone;
+            document.getElementById('contact-whatsapp').value = d.personal.contact.whatsapp;
+            document.getElementById('contact-linkedin').value = d.personal.contact.linkedin;
+            document.getElementById('contact-behance').value = d.personal.contact.behance;
+
+            // Featured
+            const fp = d.featuredProject;
+            document.getElementById('feat-title').value = fp.title;
+            document.getElementById('feat-company').value = `${fp.company} | ${fp.date}`;
+            document.getElementById('feat-status').value = fp.status;
+            document.getElementById('feat-problem').value = fp.problem;
+            document.getElementById('feat-action').value = fp.action;
+            document.getElementById('feat-result').value = fp.result;
+            document.getElementById('feat-image').value = fp.image;
+
+            // Lists
+            renderList('hero-badges-container', d.personal.heroStats, createHeroBadgeItem);
+            renderList('experience-list', d.experience, createExperienceItem);
+            renderList('skill-categories-list', d.skills.categories, createSkillCategoryItem);
+            renderList('proficiency-list', d.skills.proficiency, createProficiencyItem);
+            renderList('linkedin-list', d.linkedinPosts, createLinkedInItem);
+            renderList('behance-list', d.behanceProjects, createBehanceItem);
+            renderList('education-list', d.education.degrees, createEducationItem);
+            renderList('cert-list', d.education.certifications, createCertItem);
+            renderList('language-list', d.languages, createLanguageItem);
+            renderList('volunteer-list', d.volunteer, createVolunteerItem);
+        }
+
+        function renderList(containerId, items, createFn) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            items.forEach((item, index) => container.appendChild(createFn(item, index)));
+        }
+
+        // --- ITEM CREATORS ---
+        function createHeroBadgeItem(item, index) {
+            const div = document.createElement('div');
+            div.className = 'item-card';
+            div.innerHTML = `
+                <div class="item-actions"><button class="btn btn-danger" onclick="removeItem('hero-badges-container', ${index})">×</button></div>
+                <div class="grid-2">
+                    <div><label>Icon (FontAwesome)</label><input type="text" value="${item.icon}"></div>
+                    <div><label>Label</label><input type="text" value="${item.label}"></div>
+                </div>
+            `;
+            return div;
+        }
+
+        function createExperienceItem(item, index) {
+            const div = document.createElement('div');
+            div.className = 'item-card';
+            div.innerHTML = `
+                <div class="item-actions"><button class="btn btn-danger" onclick="removeItem('experience-list', ${index})">×</button></div>
+                <div class="grid-2">
+                    <div><label>Role</label><input type="text" value="${item.role}"></div>
+                    <div><label>Company</label><input type="text" value="${item.company}"></div>
+                    <div><label>Date</label><input type="text" value="${item.date}"></div>
+                    <div><label>Location</label><input type="text" value="${item.location}"></div>
+                </div>
+                <div class="form-group" style="margin-top:1rem">
+                    <label>Description (One bullet point per line)</label>
+                    <textarea>${item.desc.join('\n')}</textarea>
+                </div>
+                <label style="display:flex; align-items:center; gap:0.5rem"><input type="checkbox" ${item.isCurrent ? 'checked' : ''} style="width:auto"> Is Current Job</label>
+            `;
+            return div;
+        }
+
+        function createSkillCategoryItem(item, index) {
+            const div = document.createElement('div');
+            div.className = 'item-card';
+            div.innerHTML = `
+                <div class="item-actions"><button class="btn btn-danger" onclick="removeItem('skill-categories-list', ${index})">×</button></div>
+                <div class="grid-2">
+                    <div><label>Title</label><input type="text" value="${item.title}"></div>
+                    <div><label>Icon</label><input type="text" value="${item.icon}"></div>
+                </div>
+                <div class="form-group" style="margin-top:1rem">
+                    <label>Tags (Comma separated)</label>
+                    <input type="text" value="${item.tags.join(', ')}">
+                </div>
+            `;
+            return div;
+        }
+
+        function createProficiencyItem(item, index) {
+            const div = document.createElement('div');
+            div.className = 'item-card';
+            div.innerHTML = `
+                <div class="item-actions"><button class="btn btn-danger" onclick="removeItem('proficiency-list', ${index})">×</button></div>
+                <div class="grid-2">
+                    <div><label>Skill Name</label><input type="text" value="${item.label}"></div>
+                    <div><label>Percentage (0-100)</label><input type="number" value="${item.percent}"></div>
+                </div>
+            `;
+            return div;
+        }
+
+        function createLinkedInItem(item, index) {
+            const div = document.createElement('div');
+            div.className = 'item-card';
+            div.innerHTML = `
+                <div class="item-actions"><button class="btn btn-danger" onclick="removeItem('linkedin-list', ${index})">×</button></div>
+                <div class="form-group"><label>Date/Category Label</label><input type="text" value="${item.date}"></div>
+                <div class="form-group"><label>Post Snippet</label><textarea>${item.text}</textarea></div>
+                <div class="form-group"><label>LinkedIn URL</label><input type="text" value="${item.url}"></div>
+            `;
+            return div;
+        }
+
+        function createBehanceItem(item, index) {
+            const div = document.createElement('div');
+            div.className = 'item-card';
+            div.innerHTML = `
+                <div class="item-actions"><button class="btn btn-danger" onclick="removeItem('behance-list', ${index})">×</button></div>
+                <div class="grid-2">
+                    <div><label>Project ID</label><input type="text" value="${item.id}"></div>
+                    <div><label>Title</label><input type="text" value="${item.title}"></div>
+                </div>
+            `;
+            return div;
+        }
+
+        function createEducationItem(item, index) {
+            const div = document.createElement('div');
+            div.className = 'item-card';
+            div.innerHTML = `
+                <div class="item-actions"><button class="btn btn-danger" onclick="removeItem('education-list', ${index})">×</button></div>
+                <div class="form-group"><label>Degree</label><input type="text" value="${item.degree}"></div>
+                <div class="grid-2">
+                    <div><label>Institution</label><input type="text" value="${item.institution}"></div>
+                    <div><label>Date/Result</label><input type="text" value="${item.date} | ${item.result}"></div>
+                </div>
+            `;
+            return div;
+        }
+
+        function createCertItem(item, index) {
+            const div = document.createElement('div');
+            div.className = 'item-card';
+            div.innerHTML = `
+                <div class="item-actions"><button class="btn btn-danger" onclick="removeItem('cert-list', ${index})">×</button></div>
+                <div class="grid-2">
+                    <div><label>Cert Name</label><input type="text" value="${item.name}"></div>
+                    <div><label>Meta (Inst/Year)</label><input type="text" value="${item.meta}"></div>
+                </div>
+            `;
+            return div;
+        }
+
+        function createLanguageItem(item, index) {
+            const div = document.createElement('div');
+            div.className = 'item-card';
+            div.innerHTML = `
+                <div class="item-actions"><button class="btn btn-danger" onclick="removeItem('language-list', ${index})">×</button></div>
+                <div class="grid-2">
+                    <div><label>Language</label><input type="text" value="${item.name}"></div>
+                    <div class="lang-dots">
+                        <span>R:</span><input type="number" min="0" max="3" value="${item.reading}">
+                        <span>W:</span><input type="number" min="0" max="3" value="${item.writing}">
+                        <span>S:</span><input type="number" min="0" max="3" value="${item.speaking}">
                     </div>
-                `;
-            });
-
-            // Render Behance Projects
-            const beContainer = document.getElementById('behance-list');
-            beContainer.innerHTML = '';
-            currentData.behanceProjects.forEach((proj, index) => {
-                beContainer.innerHTML += `
-                    <div class="item-row">
-                        <div class="item-content">
-                            <input type="text" placeholder="Project Title" value="${escapeHtml(proj.title || '')}" onchange="updateBE(${index}, 'title', this.value)">
-                            <input type="text" placeholder="Behance Project ID (Numbers only)" value="${escapeHtml(proj.id || '')}" onchange="updateBE(${index}, 'id', this.value)">
-                        </div>
-                        <button class="remove-btn" onclick="removeBE(${index})">Delete</button>
-                    </div>
-                `;
-            });
+                </div>
+            `;
+            return div;
         }
 
-        function escapeHtml(unsafe) {
-            return unsafe
-                .replace(/&/g, "&amp;")
-                .replace(/</g, "&lt;")
-                .replace(/>/g, "&gt;")
-                .replace(/"/g, "&quot;")
-                .replace(/'/g, "&#039;");
+        function createVolunteerItem(item, index) {
+            const div = document.createElement('div');
+            div.className = 'item-card';
+            div.innerHTML = `
+                <div class="item-actions"><button class="btn btn-danger" onclick="removeItem('volunteer-list', ${index})">×</button></div>
+                <div class="grid-2">
+                    <div><label>Title</label><input type="text" value="${item.title}"></div>
+                    <div><label>Role</label><input type="text" value="${item.role}"></div>
+                    <div><label>Date</label><input type="text" value="${item.date}"></div>
+                </div>
+                <div class="form-group" style="margin-top:1rem"><label>Description</label><textarea>${item.desc}</textarea></div>
+            `;
+            return div;
         }
 
-        // LinkedIn Handlers
-        function addLinkedInPost() {
-            currentData.linkedinPosts.unshift({ date: "New Update", text: "New post summary...", url: "https://linkedin.com/..." });
-            renderUI();
+        // --- HELPERS ---
+        function removeItem(cid, idx) {
+            const container = document.getElementById(cid);
+            container.children[idx].remove();
+            // Re-render to update indices if needed, or just let the save function handle it
         }
-        function updateLN(index, field, value) { currentData.linkedinPosts[index][field] = value; }
-        function removeLN(index) { currentData.linkedinPosts.splice(index, 1); renderUI(); }
 
-        // Behance Handlers
-        function addBehanceProject() {
-            currentData.behanceProjects.unshift({ title: "New Project", id: "000000" });
-            renderUI();
-        }
-        function updateBE(index, field, value) { currentData.behanceProjects[index][field] = value; }
-        function removeBE(index) { currentData.behanceProjects.splice(index, 1); renderUI(); }
+        function addHeroBadge() { document.getElementById('hero-badges-container').appendChild(createHeroBadgeItem({icon:'', label:''}, 0)); }
+        function addExperience() { document.getElementById('experience-list').appendChild(createExperienceItem({role:'', company:'', date:'', location:'', desc:[], isCurrent:false}, 0)); }
+        function addSkillCategory() { document.getElementById('skill-categories-list').appendChild(createSkillCategoryItem({title:'', icon:'', tags:[]}, 0)); }
+        function addProficiency() { document.getElementById('proficiency-list').appendChild(createProficiencyItem({label:'', percent:0}, 0)); }
+        function addLinkedInPost() { document.getElementById('linkedin-list').appendChild(createLinkedInItem({text:'', url:'', date:''}, 0)); }
+        function addBehanceProject() { document.getElementById('behance-grid').appendChild(createBehanceItem({id:'', title:''}, 0)); }
+        function addEducation() { document.getElementById('education-list').appendChild(createEducationItem({degree:'', institution:'', date:'', result:''}, 0)); }
+        function addCertification() { document.getElementById('cert-list').appendChild(createCertItem({name:'', meta:''}, 0)); }
+        function addLanguage() { document.getElementById('language-list').appendChild(createLanguageItem({name:'', reading:3, writing:3, speaking:3}, 0)); }
+        function addVolunteer() { document.getElementById('volunteer-list').appendChild(createVolunteerItem({title:'', role:'', date:'', desc:''}, 0)); }
 
-        // Save & Download
         function saveData() {
-            const jsContent = `const PORTFOLIO_DATA = ${JSON.stringify(currentData, null, 4)};`;
-            const blob = new Blob([jsContent], { type: "text/javascript" });
-            const link = document.createElement("a");
-            link.href = URL.createObjectURL(blob);
-            link.download = "data.js";
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            alert("data.js downloaded! Please replace your existing data.js file with this new one.");
+            const d = {
+                personal: {
+                    name: document.getElementById('personal-name').value,
+                    tagline: document.getElementById('personal-tagline').value,
+                    summaryLines: document.getElementById('personal-summary').value.split('\n').filter(l => l.trim()),
+                    contact: {
+                        email: document.getElementById('contact-email').value,
+                        phone: document.getElementById('contact-phone').value,
+                        whatsapp: document.getElementById('contact-whatsapp').value,
+                        linkedin: document.getElementById('contact-linkedin').value,
+                        behance: document.getElementById('contact-behance').value
+                    },
+                    heroStats: Array.from(document.getElementById('hero-badges-container').children).map(c => ({
+                        icon: c.querySelector('input:nth-of-type(1)').value,
+                        label: c.querySelector('input:nth-of-type(2)').value
+                    })),
+                    aboutStats: PORTFOLIO_DATA.personal.aboutStats // Keep existing for now, or add UI if requested
+                },
+                experience: Array.from(document.getElementById('experience-list').children).map(c => ({
+                    role: c.querySelector('input:nth-of-type(1)').value,
+                    company: c.querySelector('input:nth-of-type(2)').value,
+                    date: c.querySelector('input:nth-of-type(3)').value,
+                    location: c.querySelector('input:nth-of-type(4)').value,
+                    desc: c.querySelector('textarea').value.split('\n').filter(l => l.trim()),
+                    isCurrent: c.querySelector('input[type="checkbox"]').checked
+                })),
+                skills: {
+                    categories: Array.from(document.getElementById('skill-categories-list').children).map(c => ({
+                        title: c.querySelector('input:nth-of-type(1)').value,
+                        icon: c.querySelector('input:nth-of-type(2)').value,
+                        tags: c.querySelector('input:nth-of-type(3)').value.split(',').map(t => t.trim()).filter(t => t)
+                    })),
+                    proficiency: Array.from(document.getElementById('proficiency-list').children).map(c => ({
+                        label: c.querySelector('input:nth-of-type(1)').value,
+                        percent: parseInt(c.querySelector('input:nth-of-type(2)').value)
+                    }))
+                },
+                education: {
+                    degrees: Array.from(document.getElementById('education-list').children).map(c => {
+                        const meta = c.querySelector('input:nth-of-type(3)').value.split('|');
+                        return {
+                            degree: c.querySelector('input:nth-of-type(1)').value,
+                            institution: c.querySelector('input:nth-of-type(2)').value,
+                            date: (meta[0] || '').trim(),
+                            result: (meta[1] || '').trim()
+                        };
+                    }),
+                    certifications: Array.from(document.getElementById('cert-list').children).map(c => ({
+                        name: c.querySelector('input:nth-of-type(1)').value,
+                        meta: c.querySelector('input:nth-of-type(2)').value
+                    }))
+                },
+                languages: Array.from(document.getElementById('language-list').children).map(c => ({
+                    name: c.querySelector('input:nth-of-type(1)').value,
+                    reading: parseInt(c.querySelector('input:nth-of-type(2)').value),
+                    writing: parseInt(c.querySelector('input:nth-of-type(3)').value),
+                    speaking: parseInt(c.querySelector('input:nth-of-type(4)').value)
+                })),
+                volunteer: Array.from(document.getElementById('volunteer-list').children).map(c => ({
+                    title: c.querySelector('input:nth-of-type(1)').value,
+                    role: c.querySelector('input:nth-of-type(2)').value,
+                    date: c.querySelector('input:nth-of-type(3)').value,
+                    desc: c.querySelector('textarea').value
+                })),
+                linkedinPosts: Array.from(document.getElementById('linkedin-list').children).map(c => ({
+                    date: c.querySelector('input:nth-of-type(1)').value,
+                    text: c.querySelector('textarea').value,
+                    url: c.querySelector('input:nth-of-type(2)').value
+                })),
+                behanceProjects: Array.from(document.getElementById('behance-list').children).map(c => ({
+                    id: c.querySelector('input:nth-of-type(1)').value,
+                    title: c.querySelector('input:nth-of-type(2)').value
+                })),
+                featuredProject: {
+                    title: document.getElementById('feat-title').value,
+                    company: document.getElementById('feat-company').value.split('|')[0].trim(),
+                    date: (document.getElementById('feat-company').value.split('|')[1] || '').trim(),
+                    status: document.getElementById('feat-status').value,
+                    problem: document.getElementById('feat-problem').value,
+                    action: document.getElementById('feat-action').value,
+                    result: document.getElementById('feat-result').value,
+                    metrics: PORTFOLIO_DATA.featuredProject.metrics, // Keep original or add UI if requested
+                    image: document.getElementById('feat-image').value
+                }
+            };
+
+            const dataStr = "const PORTFOLIO_DATA = " + JSON.stringify(d, null, 4) + ";";
+            const blob = new Blob([dataStr], { type: "text/javascript" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "data.js";
+            a.click();
+            alert("Success! Your new data.js file has been downloaded.\n\nNow, replace the old data.js in your project folder with this new one, and then push the changes to GitHub.");
         }
 
-        // Initial Render
-        renderUI();
+        window.onload = init;
     </script>
 </body>
 </html>

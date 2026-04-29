@@ -1,5 +1,179 @@
 const PORTFOLIO_DATA = {
     // ---------------------------------------------------------
+    // PERSONAL INFO & HERO
+    // ---------------------------------------------------------
+    personal: {
+        name: "Md. Tasnim Sarder Niloy",
+        tagline: "4+ years turning data into decisions, relationships into revenue.",
+        summaryLines: [
+            "Dynamic Sales & Operations Specialist with 4+ years of cross-functional experience driving sales revenue, optimizing data workflows, and executing high-conversion digital content strategies. Proven ability to leverage data analytics to scale B2B partnerships and manage complex 4,000+ item databases, improving operational efficiency by 30%.",
+            "Adept at utilizing CRM tools and cross-team collaboration to consistently exceed targets and deliver measurable business growth."
+        ],
+        contact: {
+            email: "tasnimsarder42@gmail.com",
+            phone: "+880 1857-188429",
+            whatsapp: "8801857188429",
+            linkedin: "https://linkedin.com/in/tasnimsarder42",
+            behance: "https://www.behance.net/tasnimniloy42"
+        },
+        heroStats: [
+            { icon: "fa-briefcase", label: "4+ Years Experience" },
+            { icon: "fa-bolt", label: "30% Efficiency Boost" },
+            { icon: "fa-database", label: "4,000+ Product DB" },
+            { icon: "fa-star", label: "95% Client Satisfaction" }
+        ],
+        aboutStats: [
+            { target: 4, suffix: "+", desc: "Years of Experience" },
+            { target: 30, suffix: "%", desc: "Operational Efficiency Improvement" },
+            { target: 35, suffix: "%", desc: "Audience Engagement Growth" },
+            { target: 80, suffix: "%", desc: "Inventory Speed Improvement" }
+        ]
+    },
+
+    // ---------------------------------------------------------
+    // CAREER JOURNEY (Experience)
+    // ---------------------------------------------------------
+    experience: [
+        {
+            role: "Client Relationship Executive",
+            company: "Sonali Sourav Tours & Travels",
+            date: "Jan 2026 – Present",
+            location: "Dhaka",
+            isCurrent: true,
+            desc: [
+                "Act as the primary point of contact for building and maintaining strong, long-term client relationships.",
+                "Provide expert guidance on migration and visa processes to ensure clients receive accurate, tailored information.",
+                "Collaborate with internal teams to ensure all client documentation and visa requirements are met with high precision."
+            ]
+        },
+        {
+            role: "Content Manager",
+            company: "ICT Layer",
+            date: "Sep 2025 – Dec 2025",
+            location: "Dhaka",
+            desc: [
+                "Orchestrated comprehensive digital content strategies across platforms using CMS tools, boosting target audience engagement and web traffic by 35%.",
+                "Directed cross-functional workflows between designers and developers to deliver on-brand marketing assets, adhering to strict release deadlines 100% of the time.",
+                "Analyzed user interaction metrics and A/B tested content formats to maximize inbound lead generation and optimize digital presence."
+            ]
+        },
+        {
+            role: "Data Operator",
+            company: "Nitex",
+            date: "Feb 2024 – Aug 2024",
+            location: "Dhaka",
+            desc: [
+                "Processed and analyzed supply chain datasets for over 4,000 products using Excel and data tracking tools, delivering actionable insights to stakeholders.",
+                "Formulated automated data categorization structures, significantly reducing manual data retrieval times and resolving operational bottlenecks by 30%.",
+                "Visualized probable business outcomes based on historical inventory metrics, enabling senior leadership to execute optimized stocking strategies."
+            ]
+        },
+        {
+            role: "Sales & Support Representative",
+            company: "10 Minute School",
+            date: "Apr 2022 – May 2023",
+            location: "Dhaka",
+            desc: [
+                "Executed high-volume outbound telesales and inbound consulting workflows, matching 50+ students daily with customized educational solutions.",
+                "Leveraged student demographic data to recommend targeted courses, exceeding monthly conversion targets and achieving a 95% customer satisfaction score."
+            ]
+        },
+        {
+            role: "Video Editor",
+            company: "Digital Dropouts",
+            date: "Sep 2023 – Dec 2023",
+            location: "Dhaka",
+            desc: [
+                "Edited 30+ high-retention video projects using Final Cut Pro, elevating client social media engagement by 20%."
+            ]
+        },
+        {
+            role: "Graphic Designer",
+            company: "UY Lab | Internship",
+            date: "Apr 2021 – Jun 2021",
+            location: "Dhaka",
+            desc: [
+                "Created targeted visual marketing collateral catering to distinct client brand guidelines."
+            ]
+        },
+        {
+            role: "Sales Executive",
+            company: "Puma | Part-time",
+            date: "May 2019 – Oct 2019",
+            location: "Dhaka",
+            desc: [
+                "Drove direct retail sales through advanced upselling and personalized B2C customer service techniques."
+            ]
+        },
+        {
+            role: "Sales Associate",
+            company: "Aarong | Part-time",
+            date: "Apr 2017 – May 2018",
+            location: "Dhaka",
+            desc: [
+                "Drove direct retail sales through advanced upselling and personalized B2C customer service techniques."
+            ]
+        }
+    ],
+
+    // ---------------------------------------------------------
+    // SKILLS & EXPERTISE
+    // ---------------------------------------------------------
+    skills: {
+        categories: [
+            {
+                title: "Business Skills",
+                icon: "fa-briefcase",
+                tags: ["B2B Sales", "B2C Sales", "Operations Management", "Content Strategy & Development", "Client Relationship Management", "CRM Management", "Telemarketing", "Project Management"]
+            },
+            {
+                title: "Technical Skills",
+                icon: "fa-chart-bar",
+                tags: ["Data Analysis", "Data Entry & Management", "Performance Analytics", "AI Model Optimization", "Data Visualization & Reporting"]
+            },
+            {
+                title: "Tools & Software",
+                icon: "fa-tools",
+                tags: ["MS Excel", "Content Management Systems (CMS)", "Final Cut Pro", "Adobe Creative Suite", "Adobe Professional"]
+            }
+        ],
+        proficiency: [
+            { label: "B2B/B2C Sales", percent: 90 },
+            { label: "CRM & Client Management", percent: 88 },
+            { label: "Content Strategy", percent: 85 },
+            { label: "Data Analysis & Reporting", percent: 82 },
+            { label: "Operations Management", percent: 80 }
+        ]
+    },
+
+    // ---------------------------------------------------------
+    // EDUCATION & CERTS
+    // ---------------------------------------------------------
+    education: {
+        degrees: [
+            { degree: "Bachelor of Arts in English", institution: "National University, Bangladesh (NU)", date: "2022", result: "CGPA: 2.38 / 4.00" },
+            { degree: "Higher Secondary Certificate (HSC)", institution: "Gulshan Commerce College", date: "2016", result: "GPA: 4.00 / 5.00" },
+            { degree: "Secondary School Certificate (SSC)", institution: "Banani Bidyaniketan School And College", date: "2014", result: "GPA: 3.88 / 5.00" }
+        ],
+        certifications: [
+            { name: "Professional Graphic Design", meta: "UY Lab | Grade: A" },
+            { name: "Diploma in Computer Graphics Design", meta: "2014" }
+        ]
+    },
+
+    // ---------------------------------------------------------
+    // LANGUAGES & VOLUNTEER
+    // ---------------------------------------------------------
+    languages: [
+        { name: "Bangla", reading: 3, writing: 3, speaking: 3 },
+        { name: "English", reading: 3, writing: 3, speaking: 3 },
+        { name: "Hindi", reading: 1, writing: 1, speaking: 3 }
+    ],
+    volunteer: [
+        { title: "Cultural Club", role: "Team Lead", date: "Mar 2017 – Mar 2020", desc: "Performed in and managed all cultural events; led the cultural chorus team." }
+    ],
+
+    // ---------------------------------------------------------
     // LINKEDIN POSTS (Custom Native Cards)
     // ---------------------------------------------------------
     linkedinPosts: [
