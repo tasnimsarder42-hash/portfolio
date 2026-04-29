@@ -32,6 +32,10 @@
         .tab-content.active { display: block; }
         .lang-dots { display: flex; gap: 0.5rem; align-items: center; }
         .lang-dots input { width: 60px; }
+        .guide-box { background: rgba(56, 189, 248, 0.1); border: 1px solid var(--accent); padding: 1rem; border-radius: 8px; margin-bottom: 2rem; }
+        .guide-box ul { padding-left: 1.5rem; font-size: 0.9rem; }
+        .img-preview { width: 60px; height: 60px; object-fit: cover; border-radius: 4px; border: 1px solid var(--border); margin-bottom: 0.5rem; background: #000; }
+        .color-input { height: 45px; cursor: pointer; padding: 0.2rem; }
     </style>
 </head>
 <body>
@@ -41,13 +45,23 @@
         <button class="btn btn-primary" onclick="saveData()">Save & Download data.js</button>
     </h1>
 
+    <div class="guide-box">
+        <strong>📸 Image Update Guide:</strong>
+        <ul>
+            <li>To change an image, first put the new file in your <code>Image/</code> folder.</li>
+            <li>Then, type the path in this panel (e.g., <code>Image/MyNewPhoto.jpg</code>).</li>
+            <li><strong>Theme Tip:</strong> Changing colors will update the gold and teal accents across the whole site!</li>
+        </ul>
+    </div>
+
     <div class="tabs" id="tabs-container">
         <button class="tab-btn active" onclick="showTab('tab-personal')">Personal Info</button>
         <button class="tab-btn" onclick="showTab('tab-experience')">Experience</button>
         <button class="tab-btn" onclick="showTab('tab-skills')">Skills</button>
         <button class="tab-btn" onclick="showTab('tab-portfolio')">Portfolio</button>
+        <button class="tab-btn" onclick="showTab('tab-theme')">Theme & Style</button>
         <button class="tab-btn" onclick="showTab('tab-education')">Education</button>
-        <button class="tab-btn" onclick="showTab('tab-others')">Languages & Volunteer</button>
+        <button class="tab-btn" onclick="showTab('tab-others')">Others</button>
     </div>
 
     <!-- PERSONAL INFO TAB -->
@@ -67,15 +81,12 @@
                 <textarea id="personal-summary"></textarea>
             </div>
             <div class="form-group">
-                <label>Hero Avatar Image Path (e.g., Image/MyPhoto.jpg)</label>
-                <input type="text" id="personal-hero-image">
+                <label>Main Profile Image Path</label>
+                <div style="display:flex; gap:1rem; align-items:center;">
+                    <img id="personal-hero-image-preview" src="" class="img-preview" onerror="this.src='https://via.placeholder.com/60'">
+                    <input type="text" id="personal-hero-image" oninput="document.getElementById('personal-hero-image-preview').src = this.value">
+                </div>
             </div>
-        </div>
-
-        <div class="section">
-            <h2>About Section Counters</h2>
-            <div id="about-stats-container" class="item-list"></div>
-            <p style="font-size:0.8rem; color:#94a3b8; margin-top:0.5rem">Note: These are the big numbers in the About section.</p>
         </div>
 
         <div class="section">
@@ -90,9 +101,9 @@
         </div>
 
         <div class="section">
-            <h2>Hero Badges (Top Right)</h2>
-            <div id="hero-badges-container" class="item-list"></div>
-            <button class="btn btn-add" onclick="addHeroBadge()">+ Add Hero Badge</button>
+            <h2>About Section Counters</h2>
+            <div id="about-stats-container" class="item-list"></div>
+            <button class="btn btn-add" onclick="addAboutStat()">+ Add Counter</button>
         </div>
     </div>
 
@@ -124,22 +135,62 @@
         <div class="section">
             <h2>Featured Project (Nitex Section)</h2>
             <div class="form-group"><label>Title</label><input type="text" id="feat-title"></div>
-            <div class="form-group"><label>Company/Date</label><input type="text" id="feat-company"></div>
-            <div class="form-group"><label>Status Badge</label><input type="text" id="feat-status"></div>
+            <div class="grid-2">
+                <div class="form-group"><label>Company/Date</label><input type="text" id="feat-company"></div>
+                <div class="form-group"><label>Status Badge</label><input type="text" id="feat-status"></div>
+            </div>
             <div class="form-group"><label>Problem</label><textarea id="feat-problem"></textarea></div>
             <div class="form-group"><label>Action</label><textarea id="feat-action"></textarea></div>
             <div class="form-group"><label>Result</label><textarea id="feat-result"></textarea></div>
-            <div class="form-group"><label>Image Path</label><input type="text" id="feat-image"></div>
+            <div class="form-group">
+                <label>Project Image Path</label>
+                <div style="display:flex; gap:1rem; align-items:center;">
+                    <img id="feat-image-preview" src="" class="img-preview" onerror="this.src='https://via.placeholder.com/60'">
+                    <input type="text" id="feat-image" oninput="document.getElementById('feat-image-preview').src = this.value">
+                </div>
+            </div>
         </div>
         <div class="section">
-            <h2>LinkedIn Posts (Custom Cards)</h2>
+            <h2>LinkedIn Posts</h2>
             <div id="linkedin-list" class="item-list"></div>
             <button class="btn btn-add" onclick="addLinkedInPost()">+ Add LinkedIn Card</button>
         </div>
         <div class="section">
-            <h2>Behance Projects (Embeds)</h2>
+            <h2>Behance Projects</h2>
             <div id="behance-list" class="item-list"></div>
             <button class="btn btn-add" onclick="addBehanceProject()">+ Add Behance ID</button>
+        </div>
+    </div>
+
+    <!-- THEME TAB -->
+    <div id="tab-theme" class="tab-content">
+        <div class="section">
+            <h2>Color Palette</h2>
+            <div class="grid-2">
+                <div class="form-group">
+                    <label>Primary Accent (Gold)</label>
+                    <input type="color" id="theme-accent-primary" class="color-input">
+                </div>
+                <div class="form-group">
+                    <label>Secondary Accent (Teal)</label>
+                    <input type="color" id="theme-accent-secondary" class="color-input">
+                </div>
+                <div class="form-group">
+                    <label>Background Primary</label>
+                    <input type="color" id="theme-bg-primary" class="color-input">
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <h2>Typography</h2>
+            <div class="form-group">
+                <label>Heading Font Family (Google Fonts)</label>
+                <input type="text" id="theme-font-heading" placeholder="'Barlow Condensed', sans-serif">
+            </div>
+            <div class="form-group">
+                <label>Body Font Family (Google Fonts)</label>
+                <input type="text" id="theme-font-body" placeholder="'DM Sans', sans-serif">
+            </div>
         </div>
     </div>
 
@@ -171,13 +222,12 @@
         </div>
     </div>
 
-    <div style="height: 100px;"></div> <!-- Spacer -->
+    <div style="height: 100px;"></div>
 
     <div class="save-bar">
         <button class="btn btn-primary" onclick="saveData()">Save Changes & Download data.js</button>
     </div>
 
-    <!-- Use the script from data.js as reference -->
     <script src="data.js"></script>
     <script>
         function showTab(tabId) {
@@ -196,6 +246,7 @@
             document.getElementById('personal-tagline').value = d.personal.tagline;
             document.getElementById('personal-summary').value = d.personal.summaryLines.join('\n');
             document.getElementById('personal-hero-image').value = d.personal.heroImage;
+            document.getElementById('personal-hero-image-preview').src = d.personal.heroImage;
             
             // Contact
             document.getElementById('contact-email').value = d.personal.contact.email;
@@ -213,9 +264,18 @@
             document.getElementById('feat-action').value = fp.action;
             document.getElementById('feat-result').value = fp.result;
             document.getElementById('feat-image').value = fp.image;
+            document.getElementById('feat-image-preview').src = fp.image;
+
+            // Theme
+            if(d.theme) {
+                document.getElementById('theme-accent-primary').value = d.theme.accentPrimary;
+                document.getElementById('theme-accent-secondary').value = d.theme.accentSecondary;
+                document.getElementById('theme-bg-primary').value = d.theme.bgPrimary;
+                document.getElementById('theme-font-heading').value = d.theme.fontHeading;
+                document.getElementById('theme-font-body').value = d.theme.fontBody;
+            }
 
             // Lists
-            renderList('hero-badges-container', d.personal.heroStats, createHeroBadgeItem);
             renderList('about-stats-container', d.personal.aboutStats, createAboutStatItem);
             renderList('experience-list', d.experience, createExperienceItem);
             renderList('skill-categories-list', d.skills.categories, createSkillCategoryItem);
@@ -231,23 +291,10 @@
         function renderList(containerId, items, createFn) {
             const container = document.getElementById(containerId);
             container.innerHTML = '';
-            items.forEach((item, index) => container.appendChild(createFn(item, index)));
+            if(items) items.forEach((item, index) => container.appendChild(createFn(item, index)));
         }
 
         // --- ITEM CREATORS ---
-        function createHeroBadgeItem(item, index) {
-            const div = document.createElement('div');
-            div.className = 'item-card';
-            div.innerHTML = `
-                <div class="item-actions"><button class="btn btn-danger" onclick="this.parentElement.parentElement.remove()">×</button></div>
-                <div class="grid-2">
-                    <div><label>Icon (FontAwesome)</label><input type="text" value="${item.icon}"></div>
-                    <div><label>Label</label><input type="text" value="${item.label}"></div>
-                </div>
-            `;
-            return div;
-        }
-
         function createAboutStatItem(item, index) {
             const div = document.createElement('div');
             div.className = 'item-card';
@@ -266,7 +313,7 @@
             const div = document.createElement('div');
             div.className = 'item-card';
             div.innerHTML = `
-                <div class="item-actions"><button class="btn btn-danger" onclick="removeItem('experience-list', ${index})">×</button></div>
+                <div class="item-actions"><button class="btn btn-danger" onclick="this.parentElement.parentElement.remove()">×</button></div>
                 <div class="grid-2">
                     <div><label>Role</label><input type="text" value="${item.role}"></div>
                     <div><label>Company</label><input type="text" value="${item.company}"></div>
@@ -286,7 +333,7 @@
             const div = document.createElement('div');
             div.className = 'item-card';
             div.innerHTML = `
-                <div class="item-actions"><button class="btn btn-danger" onclick="removeItem('skill-categories-list', ${index})">×</button></div>
+                <div class="item-actions"><button class="btn btn-danger" onclick="this.parentElement.parentElement.remove()">×</button></div>
                 <div class="grid-2">
                     <div><label>Title</label><input type="text" value="${item.title}"></div>
                     <div><label>Icon</label><input type="text" value="${item.icon}"></div>
@@ -303,7 +350,7 @@
             const div = document.createElement('div');
             div.className = 'item-card';
             div.innerHTML = `
-                <div class="item-actions"><button class="btn btn-danger" onclick="removeItem('proficiency-list', ${index})">×</button></div>
+                <div class="item-actions"><button class="btn btn-danger" onclick="this.parentElement.parentElement.remove()">×</button></div>
                 <div class="grid-2">
                     <div><label>Skill Name</label><input type="text" value="${item.label}"></div>
                     <div><label>Percentage (0-100)</label><input type="number" value="${item.percent}"></div>
@@ -316,7 +363,7 @@
             const div = document.createElement('div');
             div.className = 'item-card';
             div.innerHTML = `
-                <div class="item-actions"><button class="btn btn-danger" onclick="removeItem('linkedin-list', ${index})">×</button></div>
+                <div class="item-actions"><button class="btn btn-danger" onclick="this.parentElement.parentElement.remove()">×</button></div>
                 <div class="form-group"><label>Date/Category Label</label><input type="text" value="${item.date}"></div>
                 <div class="form-group"><label>Post Snippet</label><textarea>${item.text}</textarea></div>
                 <div class="form-group"><label>LinkedIn URL</label><input type="text" value="${item.url}"></div>
@@ -328,7 +375,7 @@
             const div = document.createElement('div');
             div.className = 'item-card';
             div.innerHTML = `
-                <div class="item-actions"><button class="btn btn-danger" onclick="removeItem('behance-list', ${index})">×</button></div>
+                <div class="item-actions"><button class="btn btn-danger" onclick="this.parentElement.parentElement.remove()">×</button></div>
                 <div class="grid-2">
                     <div><label>Project ID</label><input type="text" value="${item.id}"></div>
                     <div><label>Title</label><input type="text" value="${item.title}"></div>
@@ -341,7 +388,7 @@
             const div = document.createElement('div');
             div.className = 'item-card';
             div.innerHTML = `
-                <div class="item-actions"><button class="btn btn-danger" onclick="removeItem('education-list', ${index})">×</button></div>
+                <div class="item-actions"><button class="btn btn-danger" onclick="this.parentElement.parentElement.remove()">×</button></div>
                 <div class="form-group"><label>Degree</label><input type="text" value="${item.degree}"></div>
                 <div class="grid-2">
                     <div><label>Institution</label><input type="text" value="${item.institution}"></div>
@@ -355,7 +402,7 @@
             const div = document.createElement('div');
             div.className = 'item-card';
             div.innerHTML = `
-                <div class="item-actions"><button class="btn btn-danger" onclick="removeItem('cert-list', ${index})">×</button></div>
+                <div class="item-actions"><button class="btn btn-danger" onclick="this.parentElement.parentElement.remove()">×</button></div>
                 <div class="grid-2">
                     <div><label>Cert Name</label><input type="text" value="${item.name}"></div>
                     <div><label>Meta (Inst/Year)</label><input type="text" value="${item.meta}"></div>
@@ -368,7 +415,7 @@
             const div = document.createElement('div');
             div.className = 'item-card';
             div.innerHTML = `
-                <div class="item-actions"><button class="btn btn-danger" onclick="removeItem('language-list', ${index})">×</button></div>
+                <div class="item-actions"><button class="btn btn-danger" onclick="this.parentElement.parentElement.remove()">×</button></div>
                 <div class="grid-2">
                     <div><label>Language</label><input type="text" value="${item.name}"></div>
                     <div class="lang-dots">
@@ -385,7 +432,7 @@
             const div = document.createElement('div');
             div.className = 'item-card';
             div.innerHTML = `
-                <div class="item-actions"><button class="btn btn-danger" onclick="removeItem('volunteer-list', ${index})">×</button></div>
+                <div class="item-actions"><button class="btn btn-danger" onclick="this.parentElement.parentElement.remove()">×</button></div>
                 <div class="grid-2">
                     <div><label>Title</label><input type="text" value="${item.title}"></div>
                     <div><label>Role</label><input type="text" value="${item.role}"></div>
@@ -396,19 +443,12 @@
             return div;
         }
 
-        // --- HELPERS ---
-        function removeItem(cid, idx) {
-            const container = document.getElementById(cid);
-            container.children[idx].remove();
-            // Re-render to update indices if needed, or just let the save function handle it
-        }
-
-        function addHeroBadge() { document.getElementById('hero-badges-container').appendChild(createHeroBadgeItem({icon:'', label:''}, 0)); }
+        function addAboutStat() { document.getElementById('about-stats-container').appendChild(createAboutStatItem({target:0, suffix:'', desc:''}, 0)); }
         function addExperience() { document.getElementById('experience-list').appendChild(createExperienceItem({role:'', company:'', date:'', location:'', desc:[], isCurrent:false}, 0)); }
         function addSkillCategory() { document.getElementById('skill-categories-list').appendChild(createSkillCategoryItem({title:'', icon:'', tags:[]}, 0)); }
         function addProficiency() { document.getElementById('proficiency-list').appendChild(createProficiencyItem({label:'', percent:0}, 0)); }
         function addLinkedInPost() { document.getElementById('linkedin-list').appendChild(createLinkedInItem({text:'', url:'', date:''}, 0)); }
-        function addBehanceProject() { document.getElementById('behance-grid').appendChild(createBehanceItem({id:'', title:''}, 0)); }
+        function addBehanceProject() { document.getElementById('behance-list').appendChild(createBehanceItem({id:'', title:''}, 0)); }
         function addEducation() { document.getElementById('education-list').appendChild(createEducationItem({degree:'', institution:'', date:'', result:''}, 0)); }
         function addCertification() { document.getElementById('cert-list').appendChild(createCertItem({name:'', meta:''}, 0)); }
         function addLanguage() { document.getElementById('language-list').appendChild(createLanguageItem({name:'', reading:3, writing:3, speaking:3}, 0)); }
@@ -428,10 +468,7 @@
                         linkedin: document.getElementById('contact-linkedin').value,
                         behance: document.getElementById('contact-behance').value
                     },
-                    heroStats: Array.from(document.getElementById('hero-badges-container').children).map(c => ({
-                        icon: c.querySelector('input:nth-of-type(1)').value,
-                        label: c.querySelector('input:nth-of-type(2)').value
-                    })),
+                    heroStats: PORTFOLIO_DATA.personal.heroStats,
                     aboutStats: Array.from(document.getElementById('about-stats-container').children).map(c => ({
                         target: parseInt(c.querySelector('input:nth-of-type(1)').value),
                         suffix: c.querySelector('input:nth-of-type(2)').value,
@@ -459,7 +496,7 @@
                 },
                 education: {
                     degrees: Array.from(document.getElementById('education-list').children).map(c => {
-                        const meta = c.querySelector('input:nth-of-type(3)').value.split('|');
+                        const meta = (c.querySelector('input:nth-of-type(3)').value || '').split('|');
                         return {
                             degree: c.querySelector('input:nth-of-type(1)').value,
                             institution: c.querySelector('input:nth-of-type(2)').value,
@@ -501,8 +538,15 @@
                     problem: document.getElementById('feat-problem').value,
                     action: document.getElementById('feat-action').value,
                     result: document.getElementById('feat-result').value,
-                    metrics: PORTFOLIO_DATA.featuredProject.metrics, // Keep original or add UI if requested
+                    metrics: PORTFOLIO_DATA.featuredProject.metrics,
                     image: document.getElementById('feat-image').value
+                },
+                theme: {
+                    accentPrimary: document.getElementById('theme-accent-primary').value,
+                    accentSecondary: document.getElementById('theme-accent-secondary').value,
+                    bgPrimary: document.getElementById('theme-bg-primary').value,
+                    fontHeading: document.getElementById('theme-font-heading').value,
+                    fontBody: document.getElementById('theme-font-body').value
                 }
             };
 

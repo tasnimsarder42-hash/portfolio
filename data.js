@@ -251,5 +251,16 @@ const PORTFOLIO_DATA = {
             "100% Data Accuracy"
         ],
         image: "Image/Image 3.JPG"
+    },
+
+    // ---------------------------------------------------------
+    // THEME & STYLING
+    // ---------------------------------------------------------
+    theme: {
+        accentPrimary: "#C9A84C",    // Gold
+        accentSecondary: "#1ABCB4",  // Teal
+        bgPrimary: "#0A0C0F",        // Dark background
+        fontHeading: "'Barlow Condensed', sans-serif",
+        fontBody: "'DM Sans', sans-serif"
     }
 };

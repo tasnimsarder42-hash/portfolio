@@ -37,6 +37,8 @@
             --border-active: rgba(201, 168, 76, 0.50);
             --glow-gold: rgba(201, 168, 76, 0.12);
             --glow-teal: rgba(26, 188, 180, 0.10);
+            --font-heading: 'Barlow Condensed', sans-serif;
+            --font-body: 'DM Sans', sans-serif;
             scroll-behavior: smooth;
         }
 
@@ -49,7 +51,7 @@
         body {
             background-color: var(--bg-primary);
             color: var(--text-primary);
-            font-family: 'DM Sans', sans-serif;
+            font-family: var(--font-body);
             overflow-x: hidden;
             position: relative;
         }
@@ -2109,6 +2111,20 @@
             // --- DYNAMIC DATA RENDERING (from data.js) ---
             if (typeof PORTFOLIO_DATA !== 'undefined') {
                 const data = PORTFOLIO_DATA;
+
+                // 0. Apply Theme
+                if (data.theme) {
+                    const root = document.documentElement;
+                    root.style.setProperty('--accent-gold', data.theme.accentPrimary);
+                    root.style.setProperty('--accent-teal', data.theme.accentSecondary);
+                    root.style.setProperty('--bg-primary', data.theme.bgPrimary);
+                    if (data.theme.fontHeading) root.style.setProperty('--font-heading', data.theme.fontHeading);
+                    if (data.theme.fontBody) root.style.setProperty('--font-body', data.theme.fontBody);
+                    
+                    // Also update derived colors if possible (approximate)
+                    root.style.setProperty('--border-subtle', `${data.theme.accentPrimary}26`); // 15% opacity
+                    root.style.setProperty('--border-active', `${data.theme.accentPrimary}80`); // 50% opacity
+                }
 
                 // 1. Render Nav Brand
                 const navBrand = document.getElementById('nav-brand-container');
