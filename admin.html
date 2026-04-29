@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Admin Panel</title>
+    <script src="data.js"></script>
+    <style>
+        :root {
+            --bg: #0A0C0F;
+            --surface: #111418;
+            --primary: #C9A84C;
+            --text: #F0EDE8;
+            --text-muted: #9A9590;
+            --border: rgba(201,168,76,0.2);
+        }
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 2rem;
+            line-height: 1.5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+        h1, h2 { margin: 0; color: var(--primary); }
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            color: var(--text);
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: inherit;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        .btn {
+            background: var(--primary);
+            color: var(--bg);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: 0.2s;
+        }
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+        .list-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .item-row {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+        .item-content { flex-grow: 1; display: flex; flex-direction: column; gap: 0.5rem; }
+        .remove-btn {
+            background: #ff4757;
+            color: white;
+            border: none;
+            padding: 0.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .instructions {
+            background: rgba(201,168,76,0.1);
+            padding: 1rem;
+            border-radius: 4px;
+            border-left: 4px solid var(--primary);
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div>
+                <h1>Portfolio Admin Panel</h1>
+                <p style="color: var(--text-muted); margin-top: 0.5rem;">Manage your website data visually.</p>
+            </div>
+            <button class="btn" onclick="saveData()">💾 Save & Download</button>
+        </div>
+
+        <div class="instructions">
+            <strong>How to update your website:</strong>
+            <ol style="margin-top: 0.5rem; margin-bottom: 0; padding-left: 1.5rem;">
+                <li>Edit your LinkedIn posts or Behance projects below.</li>
+                <li>Click <b>Save & Download</b> at the top right.</li>
+                <li>The browser will download a file named <code>data.js</code>.</li>
+                <li>Move this new <code>data.js</code> file into your <code>AntiGravity Ai Soft</code> folder, replacing the old one!</li>
+                <li>Push the changes to GitHub.</li>
+            </ol>
+        </div>
+
+        <!-- LinkedIn Posts Section -->
+        <div class="card">
+            <div class="list-header">
+                <h2>LinkedIn Posts (Custom Cards)</h2>
+                <button class="btn btn-outline" onclick="addLinkedInPost()">+ Add Post</button>
+            </div>
+            <div id="linkedin-list"></div>
+        </div>
+
+        <!-- Behance Projects Section -->
+        <div class="card">
+            <div class="list-header">
+                <h2>Behance Projects</h2>
+                <button class="btn btn-outline" onclick="addBehanceProject()">+ Add Project</button>
+            </div>
+            <div id="behance-list"></div>
+        </div>
+    </div>
+
+    <script>
+        let currentData = { linkedinPosts: [], behanceProjects: [], featuredProject: {} };
+
+        // Load existing data
+        if (typeof PORTFOLIO_DATA !== 'undefined') {
+            currentData = JSON.parse(JSON.stringify(PORTFOLIO_DATA));
+        }
+
+        function renderUI() {
+            // Render LinkedIn Posts
+            const lnContainer = document.getElementById('linkedin-list');
+            lnContainer.innerHTML = '';
+            currentData.linkedinPosts.forEach((post, index) => {
+                lnContainer.innerHTML += `
+                    <div class="item-row">
+                        <div class="item-content">
+                            <input type="text" placeholder="Date / Type (e.g., 'Recent Activity')" value="${escapeHtml(post.date || '')}" onchange="updateLN(${index}, 'date', this.value)">
+                            <textarea rows="3" placeholder="Post Text Summary" onchange="updateLN(${index}, 'text', this.value)">${escapeHtml(post.text || '')}</textarea>
+                            <input type="text" placeholder="LinkedIn URL" value="${escapeHtml(post.url || '')}" onchange="updateLN(${index}, 'url', this.value)">
+                        </div>
+                        <button class="remove-btn" onclick="removeLN(${index})">Delete</button>
+                    </div>
+                `;
+            });
+
+            // Render Behance Projects
+            const beContainer = document.getElementById('behance-list');
+            beContainer.innerHTML = '';
+            currentData.behanceProjects.forEach((proj, index) => {
+                beContainer.innerHTML += `
+                    <div class="item-row">
+                        <div class="item-content">
+                            <input type="text" placeholder="Project Title" value="${escapeHtml(proj.title || '')}" onchange="updateBE(${index}, 'title', this.value)">
+                            <input type="text" placeholder="Behance Project ID (Numbers only)" value="${escapeHtml(proj.id || '')}" onchange="updateBE(${index}, 'id', this.value)">
+                        </div>
+                        <button class="remove-btn" onclick="removeBE(${index})">Delete</button>
+                    </div>
+                `;
+            });
+        }
+
+        function escapeHtml(unsafe) {
+            return unsafe
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+        // LinkedIn Handlers
+        function addLinkedInPost() {
+            currentData.linkedinPosts.unshift({ date: "New Update", text: "New post summary...", url: "https://linkedin.com/..." });
+            renderUI();
+        }
+        function updateLN(index, field, value) { currentData.linkedinPosts[index][field] = value; }
+        function removeLN(index) { currentData.linkedinPosts.splice(index, 1); renderUI(); }
+
+        // Behance Handlers
+        function addBehanceProject() {
+            currentData.behanceProjects.unshift({ title: "New Project", id: "000000" });
+            renderUI();
+        }
+        function updateBE(index, field, value) { currentData.behanceProjects[index][field] = value; }
+        function removeBE(index) { currentData.behanceProjects.splice(index, 1); renderUI(); }
+
+        // Save & Download
+        function saveData() {
+            const jsContent = `const PORTFOLIO_DATA = ${JSON.stringify(currentData, null, 4)};`;
+            const blob = new Blob([jsContent], { type: "text/javascript" });
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = "data.js";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            alert("data.js downloaded! Please replace your existing data.js file with this new one.");
+        }
+
+        // Initial Render
+        renderUI();
+    </script>
+</body>
+</html>

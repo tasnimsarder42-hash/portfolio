@@ -1,21 +1,47 @@
 const PORTFOLIO_DATA = {
     // ---------------------------------------------------------
-    // LINKEDIN POSTS
-    // To add a new post, paste the LinkedIn embed URN ID below.
+    // LINKEDIN POSTS (Custom Native Cards)
     // ---------------------------------------------------------
     linkedinPosts: [
-        "urn:li:ugcPost:7443540603193192448",
-        "urn:li:share:7421432328067096576",
-        "urn:li:ugcPost:7413626000179126272",
-        "urn:li:ugcPost:7375196525854953472",
-        "urn:li:ugcPost:7162861506030759936",
-        "urn:li:ugcPost:7115250917939056641",
-        "urn:li:share:6937643659404140544"
+        {
+            text: "I played a small game with two AI systems recently to test their capabilities in real-world scenarios...",
+            url: "https://www.linkedin.com/posts/tasnimsarder42_i-played-a-small-game-with-two-ai-systems-ugcPost-7443540603193192448-2wLW",
+            date: "Recent Activity"
+        },
+        {
+            text: "As the election is upon our heads, we have an important responsibility to reflect on our future...",
+            url: "https://www.linkedin.com/posts/tasnimsarder42_as-the-election-is-upon-our-heads-we-have-share-7421432328067096576-vINI",
+            date: "Recent Activity"
+        },
+        {
+            text: "I'm happy to share that I'm starting a new position. Excited for this next chapter!",
+            url: "https://www.linkedin.com/posts/tasnimsarder42_im-happy-to-share-that-im-starting-a-new-ugcPost-7413626000179126272-gzYa",
+            date: "Career Update"
+        },
+        {
+            text: "I'm happy to share that I'm starting a new position! A great milestone in my journey.",
+            url: "https://www.linkedin.com/posts/tasnimsarder42_im-happy-to-share-that-im-starting-a-new-ugcPost-7375196525854953472-BAXf",
+            date: "Career Update"
+        },
+        {
+            text: "I'm happy to share that I'm starting a new position! Looking forward to learning and growing.",
+            url: "https://www.linkedin.com/posts/tasnimsarder42_im-happy-to-share-that-im-starting-a-new-ugcPost-7162861506030759936-Ta8B",
+            date: "Career Update"
+        },
+        {
+            text: "I'm happy to share that I'm starting a new position! Thanks to everyone who supported me.",
+            url: "https://www.linkedin.com/posts/tasnimsarder42_im-happy-to-share-that-im-starting-a-new-ugcPost-7115250917939056641-OHL2",
+            date: "Career Update"
+        },
+        {
+            text: "To gain a good employee-owner relationship, communication and trust are the absolute keys to success...",
+            url: "https://www.linkedin.com/posts/tasnimsarder42_to-gain-a-good-employee-owner-relationship-share-6937643659404140544-JT1Q",
+            date: "Professional Insight"
+        }
     ],
 
     // ---------------------------------------------------------
     // BEHANCE PROJECTS
-    // To add a new project, paste the Behance project ID below.
     // ---------------------------------------------------------
     behanceProjects: [
         { id: "240440987", title: "Womanish Product Display Project" },
@@ -34,7 +60,6 @@ const PORTFOLIO_DATA = {
 
     // ---------------------------------------------------------
     // FEATURED PROJECT
-    // The main featured project shown at the top of the section.
     // ---------------------------------------------------------
     featuredProject: {
         title: "Product Catalogue Database Architecture",
