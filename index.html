@@ -2144,7 +2144,7 @@
                     heroVisual.innerHTML = `
                         <div class="hero-image-wrapper">
                             <div class="dashed-ring"></div>
-                            <img src="Image/Portfolio Picture.jpg" alt="${data.personal.name}" class="hero-avatar">
+                            <img src="${data.personal.heroImage}" alt="${data.personal.name}" class="hero-avatar">
                             ${data.personal.heroStats.map((s, i) => `<div class="stat-badge badge-${i+1}"><i class="fa-solid ${s.icon}"></i> ${s.label}</div>`).join('')}
                         </div>
                     `;

@@ -66,6 +66,16 @@
                 <label>Professional Summary (One sentence per line)</label>
                 <textarea id="personal-summary"></textarea>
             </div>
+            <div class="form-group">
+                <label>Hero Avatar Image Path (e.g., Image/MyPhoto.jpg)</label>
+                <input type="text" id="personal-hero-image">
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>About Section Counters</h2>
+            <div id="about-stats-container" class="item-list"></div>
+            <p style="font-size:0.8rem; color:#94a3b8; margin-top:0.5rem">Note: These are the big numbers in the About section.</p>
         </div>
 
         <div class="section">
@@ -185,6 +195,7 @@
             document.getElementById('personal-name').value = d.personal.name;
             document.getElementById('personal-tagline').value = d.personal.tagline;
             document.getElementById('personal-summary').value = d.personal.summaryLines.join('\n');
+            document.getElementById('personal-hero-image').value = d.personal.heroImage;
             
             // Contact
             document.getElementById('contact-email').value = d.personal.contact.email;
@@ -205,6 +216,7 @@
 
             // Lists
             renderList('hero-badges-container', d.personal.heroStats, createHeroBadgeItem);
+            renderList('about-stats-container', d.personal.aboutStats, createAboutStatItem);
             renderList('experience-list', d.experience, createExperienceItem);
             renderList('skill-categories-list', d.skills.categories, createSkillCategoryItem);
             renderList('proficiency-list', d.skills.proficiency, createProficiencyItem);
@@ -227,11 +239,25 @@
             const div = document.createElement('div');
             div.className = 'item-card';
             div.innerHTML = `
-                <div class="item-actions"><button class="btn btn-danger" onclick="removeItem('hero-badges-container', ${index})">×</button></div>
+                <div class="item-actions"><button class="btn btn-danger" onclick="this.parentElement.parentElement.remove()">×</button></div>
                 <div class="grid-2">
                     <div><label>Icon (FontAwesome)</label><input type="text" value="${item.icon}"></div>
                     <div><label>Label</label><input type="text" value="${item.label}"></div>
                 </div>
+            `;
+            return div;
+        }
+
+        function createAboutStatItem(item, index) {
+            const div = document.createElement('div');
+            div.className = 'item-card';
+            div.innerHTML = `
+                <div class="item-actions"><button class="btn btn-danger" onclick="this.parentElement.parentElement.remove()">×</button></div>
+                <div class="grid-2">
+                    <div><label>Number</label><input type="number" value="${item.target}"></div>
+                    <div><label>Suffix (+, %, etc.)</label><input type="text" value="${item.suffix}"></div>
+                </div>
+                <div class="form-group" style="margin-top:1rem"><label>Description</label><input type="text" value="${item.desc}"></div>
             `;
             return div;
         }
@@ -394,6 +420,7 @@
                     name: document.getElementById('personal-name').value,
                     tagline: document.getElementById('personal-tagline').value,
                     summaryLines: document.getElementById('personal-summary').value.split('\n').filter(l => l.trim()),
+                    heroImage: document.getElementById('personal-hero-image').value,
                     contact: {
                         email: document.getElementById('contact-email').value,
                         phone: document.getElementById('contact-phone').value,
@@ -405,7 +432,11 @@
                         icon: c.querySelector('input:nth-of-type(1)').value,
                         label: c.querySelector('input:nth-of-type(2)').value
                     })),
-                    aboutStats: PORTFOLIO_DATA.personal.aboutStats // Keep existing for now, or add UI if requested
+                    aboutStats: Array.from(document.getElementById('about-stats-container').children).map(c => ({
+                        target: parseInt(c.querySelector('input:nth-of-type(1)').value),
+                        suffix: c.querySelector('input:nth-of-type(2)').value,
+                        desc: c.querySelector('input:nth-of-type(3)').value
+                    }))
                 },
                 experience: Array.from(document.getElementById('experience-list').children).map(c => ({
                     role: c.querySelector('input:nth-of-type(1)').value,

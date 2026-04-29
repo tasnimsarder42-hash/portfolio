@@ -6,9 +6,11 @@ const PORTFOLIO_DATA = {
         name: "Md. Tasnim Sarder Niloy",
         tagline: "4+ years turning data into decisions, relationships into revenue.",
         summaryLines: [
-            "Dynamic Sales & Operations Specialist with 4+ years of cross-functional experience driving sales revenue, optimizing data workflows, and executing high-conversion digital content strategies. Proven ability to leverage data analytics to scale B2B partnerships and manage complex 4,000+ item databases, improving operational efficiency by 30%.",
-            "Adept at utilizing CRM tools and cross-team collaboration to consistently exceed targets and deliver measurable business growth."
+            "Dynamic Sales & Operations Specialist with 4+ years of cross-functional experience driving sales revenue, optimizing data workflows, and executing high-conversion digital content strategies.",
+            "Proven track record in managing B2B relationships, overseeing complex supply chains, and leading large-scale content projects for global clients.",
+            "Passionate about leveraging data analytics and CRM tools to identify growth opportunities and streamline business processes."
         ],
+        heroImage: "Image/Portfolio Picture.jpg",
         contact: {
             email: "tasnimsarder42@gmail.com",
             phone: "+880 1857-188429",
