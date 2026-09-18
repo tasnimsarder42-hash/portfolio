@@ -4,262 +4,303 @@ const PORTFOLIO_DATA = {
     // ---------------------------------------------------------
     personal: {
         name: "Md. Tasnim Sarder Niloy",
-        tagline: "4+ years turning data into decisions, relationships into revenue.",
+        umbrellaTitle: "Client Operations & Data Specialist",
+        eyebrow: "// DATA-DRIVEN PROFESSIONAL",
+        tagline: "4+ years turning client relationships into revenue and messy data into decisions — and building the tools that do it.",
         summaryLines: [
-            "Dynamic Sales & Operations Specialist with 4+ years of cross-functional experience driving sales revenue, optimizing data workflows, and executing high-conversion digital content strategies.",
-            "Proven track record in managing B2B relationships, overseeing complex supply chains, and leading large-scale content projects for global clients.",
-            "Passionate about leveraging data analytics and CRM tools to identify growth opportunities and streamline business processes."
+            "Client Operations & Data Specialist with 4+ years of cross-functional experience driving client retention, streamlining operational data workflows, and executing high-conversion digital strategies.",
+            "Proven track record in managing client lifecycles, maintaining structured databases of 4,000+ items with 30% operational efficiency improvements, and independently architecting automation software to eliminate repetitive business bottlenecks.",
+            "Adept at connecting client-facing operations with robust technical workflows to deliver measurable, sustained business value."
         ],
-        heroImage: "Image/Portfolio Picture.jpg",
+        heroImage: "Image/portfolio-picture.jpg",
+        cvFile: "CV/Tasnim-Sarder-Niloy-CV.pdf",
         contact: {
             email: "tasnimsarder42@gmail.com",
             phone: "+880 1857-188429",
             whatsapp: "8801857188429",
+            github: "https://github.com/tasnimsarder42-hash",
             linkedin: "https://linkedin.com/in/tasnimsarder42",
             behance: "https://www.behance.net/tasnimniloy42"
         },
         heroStats: [
             { icon: "fa-briefcase", label: "4+ Years Experience" },
-            { icon: "fa-bolt", label: "30% Efficiency Boost" },
-            { icon: "fa-database", label: "4,000+ Product DB" },
-            { icon: "fa-star", label: "95% Client Satisfaction" }
+            { icon: "fa-database", label: "4,000+ Product Database" },
+            { icon: "fa-star", label: "95% Client Satisfaction" },
+            { icon: "fa-code", label: "1 Platform Built Solo" }
         ],
         aboutStats: [
-            { target: 4, suffix: "+", desc: "Years of Experience" },
-            { target: 30, suffix: "%", desc: "Operational Efficiency Improvement" },
+            { target: 4, suffix: "+", desc: "Years Experience" },
+            { target: 30, suffix: "%", desc: "Operational Efficiency Gain" },
             { target: 35, suffix: "%", desc: "Audience Engagement Growth" },
             { target: 80, suffix: "%", desc: "Inventory Speed Improvement" }
         ]
     },
 
     // ---------------------------------------------------------
-    // CAREER JOURNEY (Experience)
+    // CAREER JOURNEY (Experience Timeline)
     // ---------------------------------------------------------
     experience: [
         {
-            role: "Client Relationship Executive",
-            company: "Sonali Sourav Tours & Travels",
-            date: "Jan 2026 – Present",
+            role: "Client Relationship Manager",
+            company: "Toppers Academy",
             location: "Dhaka",
+            date: "Aug 2026 – Present",
             isCurrent: true,
             desc: [
-                "Act as the primary point of contact for building and maintaining strong, long-term client relationships.",
-                "Provide expert guidance on migration and visa processes to ensure clients receive accurate, tailored information.",
-                "Collaborate with internal teams to ensure all client documentation and visa requirements are met with high precision."
+                "Manage client and student interactions, follow-ups, and service-related information while maintaining an organised, responsive client experience.",
+                "Maintain accurate client/student records across operational tracking systems; identify missing or inconsistent information and coordinate timely corrections.",
+                "Advise students on IELTS preparation, study-abroad options, and application steps.",
+                "Coordinate with internal teams to track activities and keep client documentation complete and on schedule."
+            ]
+        },
+        {
+            role: "Client Relationship Executive",
+            company: "Sonali Sourav Tours & Travels",
+            location: "Dhaka",
+            date: "Jan 2026 – Aug 2026",
+            isCurrent: false,
+            desc: [
+                "Primary point of contact for migration and visa case files, maintaining accurate records and timely follow-up.",
+                "Verified visa and migration documentation for accuracy and completeness before submission, reducing errors in client filings.",
+                "Coordinated case-status updates with internal teams, travel partners, and consulates."
             ]
         },
         {
             role: "Content Manager",
             company: "ICT Layer",
-            date: "Sep 2025 – Dec 2025",
             location: "Dhaka",
+            date: "Sep 2025 – Dec 2025",
+            isCurrent: false,
             desc: [
-                "Orchestrated comprehensive digital content strategies across platforms using CMS tools, boosting target audience engagement and web traffic by 35%.",
-                "Directed cross-functional workflows between designers and developers to deliver on-brand marketing assets, adhering to strict release deadlines 100% of the time.",
-                "Analyzed user interaction metrics and A/B tested content formats to maximize inbound lead generation and optimize digital presence."
+                "Managed digital content and campaign assets across CMS platforms, tracking performance metrics tied to a 35% increase in audience engagement.",
+                "Ran A/B tests on content formats and analysed user-interaction data to guide lead-generation strategy.",
+                "Coordinated designer and developer workflows with 100% on-time delivery against release schedules."
             ]
         },
         {
             role: "Data Operator",
             company: "Nitex",
-            date: "Feb 2024 – Aug 2024",
             location: "Dhaka",
+            date: "Feb 2024 – Aug 2025",
+            isCurrent: false,
             desc: [
-                "Processed and analyzed supply chain datasets for over 4,000 products using Excel and data tracking tools, delivering actionable insights to stakeholders.",
-                "Formulated automated data categorization structures, significantly reducing manual data retrieval times and resolving operational bottlenecks by 30%.",
-                "Visualized probable business outcomes based on historical inventory metrics, enabling senior leadership to execute optimized stocking strategies."
-            ]
-        },
-        {
-            role: "Sales & Support Representative",
-            company: "10 Minute School",
-            date: "Apr 2022 – May 2023",
-            location: "Dhaka",
-            desc: [
-                "Executed high-volume outbound telesales and inbound consulting workflows, matching 50+ students daily with customized educational solutions.",
-                "Leveraged student demographic data to recommend targeted courses, exceeding monthly conversion targets and achieving a 95% customer satisfaction score."
+                "Processed and maintained structured datasets covering 4,000+ products in Excel.",
+                "Designed automated data-categorisation structures that cut manual retrieval time and resolved operational bottlenecks by 30%.",
+                "Compiled and visualised inventory and supply-chain metrics for leadership stocking and planning decisions."
             ]
         },
         {
             role: "Video Editor",
             company: "Digital Dropouts",
+            location: "Dhaka",
             date: "Sep 2023 – Dec 2023",
-            location: "Dhaka",
+            isCurrent: false,
             desc: [
-                "Edited 30+ high-retention video projects using Final Cut Pro, elevating client social media engagement by 20%."
+                "Edited 30+ video projects in Final Cut Pro, supporting a 20% lift in client social media engagement."
             ]
         },
         {
-            role: "Graphic Designer",
-            company: "UY Lab | Internship",
-            date: "Apr 2021 – Jun 2021",
+            role: "Sales & Support Representative",
+            company: "10 Minute School",
             location: "Dhaka",
+            date: "Apr 2022 – Aug 2023",
+            isCurrent: false,
             desc: [
-                "Created targeted visual marketing collateral catering to distinct client brand guidelines."
-            ]
-        },
-        {
-            role: "Sales Executive",
-            company: "Puma | Part-time",
-            date: "May 2019 – Oct 2019",
-            location: "Dhaka",
-            desc: [
-                "Drove direct retail sales through advanced upselling and personalized B2C customer service techniques."
-            ]
-        },
-        {
-            role: "Sales Associate",
-            company: "Aarong | Part-time",
-            date: "Apr 2017 – May 2018",
-            location: "Dhaka",
-            desc: [
-                "Drove direct retail sales through advanced upselling and personalized B2C customer service techniques."
+                "Matched 50+ students daily with relevant course offerings using student demographic and needs data.",
+                "Exceeded monthly conversion targets and held a 95% customer-satisfaction score."
             ]
         }
     ],
 
+    // Compact Early Career Strip
+    earlyCareer: [
+        {
+            role: "Graphic Designer (Intern)",
+            company: "UY Lab",
+            location: "Dhaka",
+            date: "Apr 2021 – Jun 2021"
+        },
+        {
+            role: "Sales Executive",
+            company: "Puma",
+            location: "Dhaka",
+            date: "May 2019 – Oct 2019"
+        },
+        {
+            role: "Sales Associate",
+            company: "Aarong",
+            location: "Dhaka",
+            date: "Apr 2017 – May 2018"
+        }
+    ],
+
     // ---------------------------------------------------------
-    // SKILLS & EXPERTISE
+    // SKILLS & EXPERTISE (Grouped Tags, No Arbitrary %)
     // ---------------------------------------------------------
     skills: {
         categories: [
             {
-                title: "Business Skills",
+                title: "Client & Revenue",
                 icon: "fa-briefcase",
-                tags: ["B2B Sales", "B2C Sales", "Operations Management", "Content Strategy & Development", "Client Relationship Management", "CRM Management", "Telemarketing", "Project Management"]
+                tags: [
+                    "B2B Sales",
+                    "B2C Sales",
+                    "Client Relationship Management",
+                    "CRM Management",
+                    "Account Follow-up & Retention",
+                    "Consultative Selling",
+                    "Telemarketing",
+                    "Customer Support",
+                    "Lead Qualification"
+                ]
             },
             {
-                title: "Technical Skills",
-                icon: "fa-chart-bar",
-                tags: ["Data Analysis", "Data Entry & Management", "Performance Analytics", "AI Model Optimization", "Data Visualization & Reporting"]
+                title: "Data & Operations",
+                icon: "fa-chart-line",
+                tags: [
+                    "Data Validation & Quality Control",
+                    "Record & Documentation Management",
+                    "Reporting & Performance Tracking",
+                    "Document Verification",
+                    "CRM & Client Record Management",
+                    "Process Automation",
+                    "Data Categorization",
+                    "Supply Chain Tracking",
+                    "Inventory Optimization",
+                    "Performance Analytics"
+                ]
             },
             {
-                title: "Tools & Software",
-                icon: "fa-tools",
-                tags: ["MS Excel", "Content Management Systems (CMS)", "Final Cut Pro", "Adobe Creative Suite", "Adobe Professional"]
+                title: "Tools",
+                icon: "fa-screwdriver-wrench",
+                tags: [
+                    "Python (basic)",
+                    "Google Workspace",
+                    "Selenium (automation)",
+                    "Git/GitHub",
+                    "MS Excel",
+                    "Adobe Acrobat Pro",
+                    "Content Management Systems (CMS)",
+                    "Final Cut Pro",
+                    "Adobe Creative Suite"
+                ]
             }
-        ],
-        proficiency: [
-            { label: "B2B/B2C Sales", percent: 90 },
-            { label: "CRM & Client Management", percent: 88 },
-            { label: "Content Strategy", percent: 85 },
-            { label: "Data Analysis & Reporting", percent: 82 },
-            { label: "Operations Management", percent: 80 }
         ]
     },
 
     // ---------------------------------------------------------
-    // EDUCATION & CERTS
+    // SELECTED WORK (Task 4)
     // ---------------------------------------------------------
-    education: {
-        degrees: [
-            { degree: "Bachelor of Arts in English", institution: "National University, Bangladesh (NU)", date: "2022", result: "CGPA: 2.38 / 4.00" },
-            { degree: "Higher Secondary Certificate (HSC)", institution: "Gulshan Commerce College", date: "2016", result: "GPA: 4.00 / 5.00" },
-            { degree: "Secondary School Certificate (SSC)", institution: "Banani Bidyaniketan School And College", date: "2014", result: "GPA: 3.88 / 5.00" }
-        ],
-        certifications: [
-            { name: "Professional Graphic Design", meta: "UY Lab | Grade: A" },
-            { name: "Diploma in Computer Graphics Design", meta: "2014" }
-        ]
-    },
-
-    // ---------------------------------------------------------
-    // LANGUAGES & VOLUNTEER
-    // ---------------------------------------------------------
-    languages: [
-        { name: "Bangla", reading: 3, writing: 3, speaking: 3 },
-        { name: "English", reading: 3, writing: 3, speaking: 3 },
-        { name: "Hindi", reading: 1, writing: 1, speaking: 3 }
-    ],
-    volunteer: [
-        { title: "Cultural Club", role: "Team Lead", date: "Mar 2017 – Mar 2020", desc: "Performed in and managed all cultural events; led the cultural chorus team." }
-    ],
-
-    // ---------------------------------------------------------
-    // LINKEDIN POSTS (Custom Native Cards)
-    // ---------------------------------------------------------
-    linkedinPosts: [
+    projects: [
         {
-            text: "I played a small game with two AI systems recently to test their capabilities in real-world scenarios...",
-            url: "https://www.linkedin.com/posts/tasnimsarder42_i-played-a-small-game-with-two-ai-systems-ugcPost-7443540603193192448-2wLW",
-            date: "Recent Activity"
+            id: "bulkly-v3",
+            featured: true,
+            title: "Bulkly V3 — Omnichannel Marketing & Outreach Hub",
+            tagline: "An AI-powered outreach platform for travel and migration agencies.",
+            role: "Sole designer and developer",
+            tags: ["Python 3.14", "CustomTkinter", "Selenium WebDriver", "Google Gemini API", "FastAPI", "Next.js", "PyInstaller"],
+            githubUrl: "https://github.com/tasnimsarder42-hash/Project-Bulkly",
+            details: {
+                problem: "At a travel and migration agency, client outreach was fully manual: one message at a time, across five different platforms, with no record of who had been contacted or what stage their enquiry had reached. Follow-ups were missed and lead data lived in scattered spreadsheets.",
+                whatIBuilt: "Bulkly is a desktop application that unifies outreach across WhatsApp, Instagram, Facebook Messenger, Telegram, and Threads into a single interface. It imports leads from Excel, generates campaign templates in three tones (Friendly, Urgent, Professional), uses the Google Gemini API for context-aware smart replies, and includes batch tooling for building WhatsApp lead communities. Distributed as a standalone Windows executable.",
+                howIApproachedIt: "I designed the architecture, wrote the automation layer against Selenium WebDriver, built the dark-theme interface in CustomTkinter, and planned a web platform (FastAPI backend, Next.js front end) as the next phase. I documented the implementation plan and known issues as versioned specs before building each module.",
+                whyItMatters: "I came to this from the operations side, not from engineering. I built it because I could see exactly where the manual process was leaking time, and I wanted to fix it rather than describe it."
+            }
         },
         {
-            text: "As the election is upon our heads, we have an important responsibility to reflect on our future...",
-            url: "https://www.linkedin.com/posts/tasnimsarder42_as-the-election-is-upon-our-heads-we-have-share-7421432328067096576-vINI",
-            date: "Recent Activity"
+            id: "nitex-database",
+            featured: false,
+            title: "Product Catalogue Database Architecture",
+            orgDate: "Nitex · Apr 2024 – Jun 2024",
+            tags: ["Excel", "Database Design", "QR/SKU Systems", "Process Automation"],
+            image: "Image/work-03.jpg",
+            imageAlt: "Nitex digital product catalogue and inventory database architecture",
+            details: {
+                problem: "Physical inventory tracking was disorganised, causing supply-chain delays and repeated manual searches.",
+                action: "Built a centralised digital database for 4,000+ unique products and designed a QR-based SKU system to automate inventory identification.",
+                result: "80% faster inventory identification, manual search errors eliminated, and consistent data accuracy across the organisation."
+            },
+            metrics: [
+                "4,000+ Products Catalogued",
+                "80% Faster Identification",
+                "100% Data Accuracy"
+            ]
         },
         {
-            text: "I'm happy to share that I'm starting a new position. Excited for this next chapter!",
-            url: "https://www.linkedin.com/posts/tasnimsarder42_im-happy-to-share-that-im-starting-a-new-ugcPost-7413626000179126272-gzYa",
-            date: "Career Update"
-        },
-        {
-            text: "I'm happy to share that I'm starting a new position! A great milestone in my journey.",
-            url: "https://www.linkedin.com/posts/tasnimsarder42_im-happy-to-share-that-im-starting-a-new-ugcPost-7375196525854953472-BAXf",
-            date: "Career Update"
-        },
-        {
-            text: "I'm happy to share that I'm starting a new position! Looking forward to learning and growing.",
-            url: "https://www.linkedin.com/posts/tasnimsarder42_im-happy-to-share-that-im-starting-a-new-ugcPost-7162861506030759936-Ta8B",
-            date: "Career Update"
-        },
-        {
-            text: "I'm happy to share that I'm starting a new position! Thanks to everyone who supported me.",
-            url: "https://www.linkedin.com/posts/tasnimsarder42_im-happy-to-share-that-im-starting-a-new-ugcPost-7115250917939056641-OHL2",
-            date: "Career Update"
-        },
-        {
-            text: "To gain a good employee-owner relationship, communication and trust are the absolute keys to success...",
-            url: "https://www.linkedin.com/posts/tasnimsarder42_to-gain-a-good-employee-owner-relationship-share-6937643659404140544-JT1Q",
-            date: "Professional Insight"
+            id: "design-visual-work",
+            featured: false,
+            title: "Design & Visual Work",
+            tags: ["Adobe Creative Suite", "Final Cut Pro", "Brand Collateral"],
+            copy: "Marketing collateral, flyers, posters and 30+ edited video projects across agency and internship work.",
+            behanceUrl: "https://www.behance.net/tasnimniloy42",
+            thumbnails: [
+                { src: "Image/work-01.jpg", alt: "Visual marketing collateral design" },
+                { src: "Image/work-02.jpg", alt: "Brand promotional poster and graphics" }
+            ]
         }
     ],
 
     // ---------------------------------------------------------
-    // BEHANCE PROJECTS
+    // EDUCATION & CERTIFICATIONS (No GPA / CGPA figures)
     // ---------------------------------------------------------
-    behanceProjects: [
-        { id: "240440987", title: "Womanish Product Display Project" },
-        { id: "240133317", title: "Promotional Content" },
-        { id: "168109795", title: "Welcome to the Pecha-Verse" },
-        { id: "123325253", title: "Minimalist Christmas Wallpaper" },
-        { id: "120290621", title: "Minimalist Halloween wallpaper" },
-        { id: "116360185", title: "Mental Artwork" },
-        { id: "115780335", title: "Esports Logo for Kingzone X" },
-        { id: "115520485", title: "Minimalist Logo for Travelling Co." },
-        { id: "115516753", title: "Minimalist LOGO for marketing agency" },
-        { id: "115475329", title: "Minimalist Logo for housing Co." },
-        { id: "114876083", title: "Bifold Brochure" },
-        { id: "114805589", title: "Minimalist LOGO for Electric Car Co." }
-    ],
-
-    // ---------------------------------------------------------
-    // FEATURED PROJECT
-    // ---------------------------------------------------------
-    featuredProject: {
-        title: "Product Catalogue Database Architecture",
-        company: "Nitex",
-        date: "Apr 2024 – Jun 2024",
-        status: "COMPLETED",
-        problem: "Severe supply chain inefficiencies caused by unorganized tracking of physical product inventory.",
-        action: "Engineered a centralized digital database encompassing 4,000+ unique physical products and designed a QR-based SKU recognition system to automate tracking.",
-        result: "Eliminated widespread manual search errors, accelerating inventory identification speed by 80% and ensuring total data accuracy across the organization.",
-        metrics: [
-            "4,000+ Products Catalogued",
-            "80% Faster Identification",
-            "100% Data Accuracy"
+    education: {
+        degrees: [
+            {
+                degree: "Bachelor of Arts in English",
+                institution: "National University, Bangladesh (NU)",
+                date: "2022"
+            },
+            {
+                degree: "Higher Secondary Certificate (HSC) — Business Studies",
+                institution: "Gulshan Commerce College",
+                date: "2016"
+            },
+            {
+                degree: "Secondary School Certificate (SSC) — Business Studies",
+                institution: "Banani Bidyaniketan School And College",
+                date: "2014"
+            }
         ],
-        image: "Image/Image 3.JPG"
+        certifications: [
+            {
+                name: "Professional Graphic Design",
+                meta: "UY Lab"
+            },
+            {
+                name: "Diploma in Computer Graphics Design",
+                meta: "2014"
+            }
+        ]
     },
 
     // ---------------------------------------------------------
-    // THEME & STYLING
+    // LANGUAGES & VOLUNTEER (Task 2b: Bangla & English only)
+    // ---------------------------------------------------------
+    languages: [
+        { name: "Bangla", level: "Native" },
+        { name: "English", level: "Full Professional Proficiency" }
+    ],
+    volunteer: [
+        {
+            title: "Cultural Club",
+            role: "Team Lead",
+            date: "Mar 2017 – Mar 2020",
+            desc: "Performed in and managed all cultural events; led the cultural chorus team."
+        }
+    ],
+
+    // ---------------------------------------------------------
+    // THEME & STYLING (Unchanged - within existing design system)
     // ---------------------------------------------------------
     theme: {
-        accentPrimary: "#C9A84C",    // Gold
-        accentSecondary: "#1ABCB4",  // Teal
-        bgPrimary: "#0A0C0F",        // Dark background
+        accentPrimary: "#C9A84C",
+        accentSecondary: "#1ABCB4",
+        bgPrimary: "#0A0C0F",
+        bgSecondary: "#111418",
+        bgTertiary: "#1A1E24",
+        textPrimary: "#F0EDE8",
+        textSecondary: "#9A9590",
+        textMuted: "#8E8A84",
         fontHeading: "'Barlow Condensed', sans-serif",
         fontBody: "'DM Sans', sans-serif"
     }

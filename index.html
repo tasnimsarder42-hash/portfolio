@@ -4,22 +4,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Md. Tasnim Sarder Niloy — Sales & Operations Specialist</title>
+    <title>Md. Tasnim Sarder Niloy — Client Operations & Data Specialist</title>
     <meta name="description"
-        content="Dynamic Sales & Operations Specialist with 4+ years of cross-functional experience driving sales revenue, optimizing data workflows, and executing high-conversion digital content strategies.">
-    <meta property="og:title" content="Md. Tasnim Sarder Niloy — Sales & Operations Specialist">
+        content="Client Operations & Data Specialist with 4+ years turning client relationships into revenue and messy data into decisions — and building the tools that do it.">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tasnimsarder42-hash.github.io/portfolio/">
+    <meta property="og:title" content="Md. Tasnim Sarder Niloy — Client Operations & Data Specialist">
     <meta property="og:description"
-        content="Dynamic Sales & Operations Specialist with 4+ years of cross-functional experience driving sales revenue, optimizing data workflows, and executing high-conversion digital content strategies.">
-    <link rel="icon" type="image/png" href="Image/Icon%20Logo.png">
+        content="Client Operations & Data Specialist with 4+ years turning client relationships into revenue and messy data into decisions — and building the tools that do it.">
+    <meta property="og:image" content="https://tasnimsarder42-hash.github.io/portfolio/Image/og-preview.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Md. Tasnim Sarder Niloy — Client Operations & Data Specialist Portfolio">
 
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Md. Tasnim Sarder Niloy — Client Operations & Data Specialist">
+    <meta name="twitter:description"
+        content="Client Operations & Data Specialist with 4+ years turning client relationships into revenue and messy data into decisions — and building the tools that do it.">
+    <meta name="twitter:image" content="https://tasnimsarder42-hash.github.io/portfolio/Image/og-preview.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="Image/icon-logo.png">
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600&family=Cormorant+Garamond:ital,wght@1,700&family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600&family=Cormorant+Garamond:ital,wght@1,700&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
         rel="stylesheet">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- Load Data.js -->
+    <!-- Data Module (kept in sync) -->
     <script src="data.js" defer></script>
 
     <style>
@@ -32,7 +52,8 @@
             --accent-teal: #1ABCB4;
             --text-primary: #F0EDE8;
             --text-secondary: #9A9590;
-            --text-muted: #5A5650;
+            /* WCAG AA contrast compliant on dark backgrounds (ratio >= 4.5:1) */
+            --text-muted: #8E8A84;
             --border-subtle: rgba(201, 168, 76, 0.15);
             --border-active: rgba(201, 168, 76, 0.50);
             --glow-gold: rgba(201, 168, 76, 0.12);
@@ -56,6 +77,32 @@
             position: relative;
         }
 
+        /* Skip link for keyboard accessibility */
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 20px;
+            background: var(--accent-gold);
+            color: var(--bg-primary);
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            z-index: 10000;
+            transition: top 0.2s ease;
+            text-decoration: none;
+        }
+
+        .skip-link:focus {
+            top: 20px;
+            outline: 3px solid var(--accent-teal);
+        }
+
+        /* Keyboard Focus Indicator */
+        :focus-visible {
+            outline: 2px solid var(--accent-gold);
+            outline-offset: 3px;
+        }
+
         body::before {
             content: '';
             position: fixed;
@@ -68,12 +115,7 @@
             z-index: 9999;
         }
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
+        h1, h2, h3, h4, h5, h6 {
             margin-bottom: 0.5em;
         }
 
@@ -148,16 +190,27 @@
             font-family: 'JetBrains Mono', monospace;
             color: var(--accent-gold);
             font-size: 0.9rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
             gap: 1rem;
+        }
+
+        .section-heading {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-primary);
+            margin-bottom: 2.5rem;
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            gap: 0.5rem;
             padding: 0.8rem 2rem;
             font-family: 'Barlow Condensed', sans-serif;
             font-weight: 600;
@@ -168,6 +221,7 @@
             cursor: pointer;
             position: relative;
             overflow: hidden;
+            font-size: 1rem;
         }
 
         .btn-primary {
@@ -210,7 +264,7 @@
             top: 0;
             width: 100%;
             height: 70px;
-            background: rgba(10, 12, 15, 0.85);
+            background: rgba(10, 12, 15, 0.90);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             z-index: 1000;
@@ -227,7 +281,7 @@
             gap: 1rem;
             font-family: 'Barlow Condensed', sans-serif;
             font-weight: 600;
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             color: var(--text-primary);
@@ -252,6 +306,7 @@
             position: relative;
             color: var(--text-primary);
             transition: color 0.3s;
+            padding: 0.3rem 0;
         }
 
         .nav-links a:hover,
@@ -281,6 +336,9 @@
             gap: 6px;
             cursor: pointer;
             z-index: 1001;
+            background: transparent;
+            border: none;
+            padding: 6px;
         }
 
         .hamburger span {
@@ -301,10 +359,10 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                gap: 3rem;
+                gap: 2.5rem;
                 opacity: 0;
                 visibility: hidden;
-                transition: 0.3s;
+                transition: 0.3s ease;
             }
 
             .nav-links.active {
@@ -313,7 +371,7 @@
             }
 
             .nav-links a {
-                font-size: 1.5rem;
+                font-size: 1.35rem;
             }
 
             .hamburger {
@@ -333,7 +391,7 @@
             }
         }
 
-        /* Hero */
+        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -391,27 +449,32 @@
             font-size: 0.9rem;
             margin-bottom: 1rem;
             display: block;
+            letter-spacing: 0.05em;
         }
 
         .hero-content h1 {
-            font-size: clamp(3rem, 6vw, 7rem);
-            line-height: 1;
+            font-size: clamp(2.8rem, 5.5vw, 6.5rem);
+            line-height: 1.05;
             margin-bottom: 1rem;
             color: var(--text-primary);
         }
 
         .typewriter-container {
             font-family: 'Barlow Condensed', sans-serif;
-            font-size: 2rem;
+            font-size: clamp(1.4rem, 2.5vw, 2.2rem);
             color: var(--accent-teal);
             margin-bottom: 1.5rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            min-height: 2.5rem;
+            min-height: 2.6rem;
+            display: flex;
+            align-items: center;
         }
 
         .typewriter-cursor {
             animation: blink 1s step-end infinite;
+            color: var(--accent-gold);
+            margin-left: 2px;
         }
 
         @keyframes blink {
@@ -421,36 +484,40 @@
         }
 
         .hero-content p.tagline {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             color: var(--text-secondary);
             margin-bottom: 2.5rem;
             max-width: 90%;
+            line-height: 1.7;
         }
 
         .hero-actions {
             display: flex;
             gap: 1.5rem;
             margin-bottom: 3rem;
+            flex-wrap: wrap;
         }
 
         .contact-chips {
             display: flex;
-            gap: 1.5rem;
+            gap: 1.25rem;
             flex-wrap: wrap;
         }
 
         .chip {
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 0.5rem;
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.85rem;
             color: var(--text-muted);
-            transition: color 0.3s;
+            transition: color 0.3s, transform 0.3s;
+            padding: 0.2rem 0;
         }
 
         .chip:hover {
             color: var(--accent-gold);
+            transform: translateY(-2px);
         }
 
         .chip i {
@@ -468,7 +535,7 @@
         .hero-image-wrapper {
             position: relative;
             width: 100%;
-            max-width: 450px;
+            max-width: 440px;
             aspect-ratio: 1;
         }
 
@@ -506,14 +573,14 @@
 
         .stat-badge {
             position: absolute;
-            background: rgba(26, 30, 36, 0.8);
+            background: rgba(26, 30, 36, 0.85);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid var(--border-subtle);
             padding: 0.6rem 1.2rem;
             border-radius: 30px;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
+            font-size: 0.78rem;
             color: var(--text-primary);
             display: flex;
             align-items: center;
@@ -536,7 +603,7 @@
 
         .badge-2 {
             bottom: 15%;
-            right: -10%;
+            right: -8%;
             animation-delay: 1.5s;
         }
 
@@ -547,18 +614,15 @@
         }
 
         .badge-4 {
-            top: 20%;
-            left: -10%;
+            top: 18%;
+            left: -8%;
             animation-delay: 4.5s;
         }
 
         @keyframes float {
-
-            0%,
-            100% {
+            0%, 100% {
                 transform: translateY(0);
             }
-
             50% {
                 transform: translateY(-10px);
             }
@@ -572,22 +636,16 @@
             color: var(--text-muted);
             font-size: 1.5rem;
             animation: bounce 2s infinite;
+            padding: 0.5rem;
         }
 
         @keyframes bounce {
-
-            0%,
-            20%,
-            50%,
-            80%,
-            100% {
+            0%, 20%, 50%, 80%, 100% {
                 transform: translateY(0) translateX(-50%);
             }
-
             40% {
                 transform: translateY(-10px) translateX(-50%);
             }
-
             60% {
                 transform: translateY(-5px) translateX(-50%);
             }
@@ -618,7 +676,7 @@
 
             .hero-visual {
                 width: 100%;
-                max-width: 350px;
+                max-width: 340px;
             }
 
             .stat-badge {
@@ -634,7 +692,20 @@
             }
         }
 
-        /* Images */
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            font-size: 1.05rem;
+            margin-bottom: 1.2rem;
+            line-height: 1.7;
+        }
+
         .image-collage {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -652,12 +723,12 @@
             border: 1px solid var(--border-subtle);
             transition: transform 0.4s ease, border-color 0.4s, filter 0.4s;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            filter: grayscale(40%) contrast(110%);
+            filter: grayscale(30%) contrast(105%);
             padding: 0.5rem;
         }
 
         .image-collage img:hover {
-            transform: scale(1.05) translateY(-5px);
+            transform: scale(1.04) translateY(-5px);
             border-color: var(--accent-gold);
             filter: grayscale(0%) contrast(100%);
             z-index: 2;
@@ -669,19 +740,7 @@
         }
 
         .image-collage img:nth-child(2):hover {
-            transform: scale(1.05) translateY(15px);
-        }
-
-        /* About Section */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-text p {
-            font-size: 1.1rem;
+            transform: scale(1.04) translateY(15px);
         }
 
         .about-stats {
@@ -696,12 +755,14 @@
             -webkit-backdrop-filter: blur(12px);
             border-left: 2px solid var(--accent-gold);
             padding: 2rem;
-            transition: transform 0.3s, background 0.3s;
+            border-radius: 0 8px 8px 0;
+            transition: transform 0.3s, background 0.3s, border-color 0.3s;
         }
 
         .stat-card:hover {
             transform: translateY(-5px);
-            background: rgba(26, 30, 36, 0.8);
+            background: rgba(26, 30, 36, 0.85);
+            border-left-color: var(--accent-teal);
         }
 
         .stat-card .num {
@@ -717,6 +778,7 @@
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.85rem;
             color: var(--text-secondary);
+            line-height: 1.5;
         }
 
         @media (max-width: 992px) {
@@ -731,7 +793,7 @@
             }
         }
 
-        /* Experience */
+        /* Experience Timeline */
         .timeline {
             position: relative;
             max-width: 1000px;
@@ -801,16 +863,17 @@
 
         .timeline-role {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
+            font-size: 1.55rem;
             color: var(--accent-gold);
-            margin-bottom: 0.2rem;
+            margin-bottom: 0.3rem;
+            font-weight: 700;
         }
 
         .timeline-company {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             color: var(--text-primary);
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
 
         .timeline-meta {
@@ -818,7 +881,7 @@
             gap: 1rem;
             font-size: 0.85rem;
             color: var(--text-muted);
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
             font-family: 'JetBrains Mono', monospace;
         }
 
@@ -833,9 +896,10 @@
         }
 
         .timeline-desc li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.6rem;
             position: relative;
-            padding-left: 1.2rem;
+            padding-left: 1.25rem;
+            line-height: 1.55;
         }
 
         .timeline-desc li::before {
@@ -851,7 +915,7 @@
             right: 20px;
             background: var(--bg-primary);
             border: 1px solid var(--accent-gold);
-            padding: 0.2rem 0.8rem;
+            padding: 0.25rem 0.85rem;
             border-radius: 20px;
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.75rem;
@@ -859,6 +923,8 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
         }
 
         .badge-current::before {
@@ -874,11 +940,9 @@
             0% {
                 box-shadow: 0 0 0 0 rgba(201, 168, 76, 0.4);
             }
-
             70% {
                 box-shadow: 0 0 0 6px rgba(201, 168, 76, 0);
             }
-
             100% {
                 box-shadow: 0 0 0 0 rgba(201, 168, 76, 0);
             }
@@ -911,12 +975,96 @@
             }
         }
 
-        /* Skills */
+        /* Early Career Compact Strip (Task 1) */
+        .early-career-strip {
+            margin-top: 3.5rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 2rem 2.5rem;
+            position: relative;
+        }
+
+        .early-career-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent-gold);
+            border-bottom: 1px solid var(--border-subtle);
+            padding-bottom: 0.75rem;
+        }
+
+        .early-career-header i {
+            color: var(--accent-teal);
+            font-size: 1rem;
+        }
+
+        .early-career-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .early-career-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid rgba(201, 168, 76, 0.08);
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .early-career-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .early-career-left {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+        }
+
+        .early-career-bullet {
+            color: var(--accent-teal);
+            font-size: 0.85rem;
+        }
+
+        .early-career-role {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .early-career-sep {
+            color: var(--text-muted);
+        }
+
+        .early-career-company {
+            color: var(--text-secondary);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.88rem;
+        }
+
+        .early-career-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+
+        /* Skills Section (Task 3: Grouped Tags, No Arbitrary % Bars) */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
-            margin-bottom: 4rem;
         }
 
         .skill-card {
@@ -924,6 +1072,15 @@
             border: 1px solid var(--border-subtle);
             padding: 2.5rem;
             border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
         }
 
         .skill-icon {
@@ -937,60 +1094,32 @@
             font-size: 1.5rem;
             margin-bottom: 1.5rem;
             letter-spacing: 0.05em;
+            color: var(--text-primary);
+            text-transform: uppercase;
         }
 
         .skill-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.8rem;
+            gap: 0.75rem;
         }
 
         .tag {
             background: var(--bg-tertiary);
             color: var(--text-primary);
-            padding: 0.4rem 1rem;
+            padding: 0.45rem 1rem;
             border-radius: 4px;
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.8rem;
-            transition: 0.3s;
+            border: 1px solid rgba(201, 168, 76, 0.08);
+            transition: all 0.3s ease;
         }
 
         .tag:hover {
             background: var(--accent-gold);
             color: var(--bg-primary);
-        }
-
-        .proficiency-bars {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .bar-item {
-            margin-bottom: 1.5rem;
-        }
-
-        .bar-label {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.5rem;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
-            color: var(--text-primary);
-        }
-
-        .bar-bg {
-            width: 100%;
-            height: 6px;
-            background: var(--bg-tertiary);
-            border-radius: 3px;
-            overflow: hidden;
-        }
-
-        .bar-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--accent-teal), var(--accent-gold));
-            width: 0;
-            transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+            border-color: var(--accent-gold);
+            transform: translateY(-2px);
         }
 
         @media (max-width: 1024px) {
@@ -1005,261 +1134,384 @@
             }
         }
 
-        /* Dynamic Portfolio Data Architecture */
-        .portfolio-header {
-            font-family: 'Barlow Condensed', sans-serif;
-            font-size: 2rem;
-            color: var(--accent-gold);
-            margin: 4rem 0 2rem 0;
-            border-bottom: 1px solid var(--border-subtle);
-            padding-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .behance-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        .behance-card {
-            background: var(--bg-secondary);
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid var(--border-subtle);
-            transition: transform 0.3s, border-color 0.3s;
-        }
-
-        .behance-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-gold);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        .behance-card iframe {
-            width: 100%;
-            height: 316px;
-            border: none;
-            display: block;
-        }
-
-        .linkedin-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        .linkedin-native-card {
-            background: var(--bg-secondary);
-            border-radius: 8px;
-            border: 1px solid var(--border-subtle);
-            padding: 1.5rem;
+        /* Section 04: Selected Work Layout (Task 4) */
+        .projects-wrapper {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
-            transition: transform 0.3s;
+            gap: 3rem;
         }
 
-        .linkedin-native-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-gold);
-        }
-
-        .ln-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .ln-header img {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .ln-header h4 {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.95rem;
-            color: var(--text-primary);
-            margin: 0;
-        }
-
-        .ln-header span {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        .ln-body {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            line-height: 1.5;
-            flex-grow: 1;
-        }
-
-        .ln-btn {
-            font-size: 0.8rem;
-            padding: 0.5rem 1rem;
-            width: fit-content;
-            margin-top: auto;
-        }
-
-        @media (max-width: 768px) {
-
-            .linkedin-grid,
-            .behance-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Featured Project Layout */
-        .project-card {
+        /* Flagship Featured Card (Card 1: Bulkly V3) */
+        .featured-flagship-card {
             background: var(--bg-secondary);
             border: 1px solid var(--border-subtle);
             border-radius: 8px;
-            padding: 4rem;
+            padding: 3.5rem;
             position: relative;
             overflow: hidden;
-            margin-bottom: 2rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
         }
 
-        .project-card::before {
+        .featured-flagship-card:hover {
+            border-color: var(--accent-gold);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .featured-flagship-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 4px;
             height: 100%;
-            background: var(--accent-teal);
-            z-index: 1;
+            background: linear-gradient(to bottom, var(--accent-gold), var(--accent-teal));
         }
 
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .project-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5rem;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .project-company {
-            font-family: 'JetBrains Mono', monospace;
-            color: var(--text-muted);
-        }
-
-        .project-badge {
-            background: rgba(26, 188, 180, 0.1);
-            color: var(--accent-teal);
-            padding: 0.4rem 1rem;
+        .project-badge-flagship {
+            background: rgba(201, 168, 76, 0.12);
+            color: var(--accent-gold);
+            padding: 0.4rem 1.1rem;
             border-radius: 20px;
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.8rem;
-            border: 1px solid var(--accent-teal);
+            border: 1px solid var(--accent-gold);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
         }
 
-        .project-split {
+        .flagship-header {
             display: flex;
-            gap: 3rem;
-            align-items: stretch;
-        }
-
-        .project-info {
-            flex: 1;
-        }
-
-        .project-image-box {
-            width: 40%;
-            position: relative;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 2px solid var(--border-subtle);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
-        }
-
-        .project-image-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center top;
-            display: block;
-            transition: transform 0.6s ease;
-        }
-
-        .project-card:hover .project-image-box img {
-            transform: scale(1.08);
-        }
-
-        .par-grid {
-            display: grid;
-            grid-template-columns: 1fr;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
             gap: 1.5rem;
+        }
+
+        .flagship-title-group h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            line-height: 1.15;
+        }
+
+        .flagship-tagline {
+            font-size: 1.2rem;
+            color: var(--accent-teal);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .flagship-role {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        .stack-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
             margin-bottom: 2rem;
         }
 
-        .par-col h4 {
-            font-family: 'Barlow Condensed', sans-serif;
-            font-size: 1.2rem;
+        .stack-tag {
+            background: var(--bg-tertiary);
             color: var(--text-primary);
-            margin-bottom: 0.5rem;
+            padding: 0.35rem 0.85rem;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+            border: 1px solid rgba(26, 188, 180, 0.2);
+        }
+
+        .flagship-actions {
+            display: flex;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        /* Expandable Detail Panel / Case Study Drawer */
+        .case-study-toggle-btn {
+            background: transparent;
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            padding: 0.8rem 1.8rem;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border-radius: 4px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .case-study-toggle-btn:hover {
+            background: var(--glow-gold);
+            transform: translateY(-2px);
+        }
+
+        .case-study-toggle-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .case-study-toggle-btn[aria-expanded="true"] i {
+            transform: rotate(180deg);
+        }
+
+        .case-study-drawer {
+            display: none;
+            margin-top: 2.5rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid var(--border-subtle);
+            animation: drawerFadeIn 0.4s ease;
+        }
+
+        .case-study-drawer.open {
+            display: block;
+        }
+
+        @keyframes drawerFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .case-study-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        @media (max-width: 900px) {
+            .case-study-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .case-study-card {
+            background: var(--bg-tertiary);
+            border-left: 3px solid var(--accent-gold);
+            padding: 1.75rem;
+            border-radius: 0 8px 8px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        .case-study-card:nth-child(2) {
+            border-left-color: var(--accent-teal);
+        }
+
+        .case-study-card:nth-child(3) {
+            border-left-color: #ffa502;
+        }
+
+        .case-study-card:nth-child(4) {
+            border-left-color: #2ed573;
+        }
+
+        .case-study-card h4 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.75rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
 
-        .par-col:nth-child(1) h4 i {
-            color: #ff4757;
+        .case-study-card:nth-child(2) h4 {
+            color: var(--accent-teal);
         }
 
-        .par-col:nth-child(2) h4 i {
+        .case-study-card:nth-child(3) h4 {
             color: #ffa502;
         }
 
-        .par-col:nth-child(3) h4 i {
+        .case-study-card:nth-child(4) h4 {
             color: #2ed573;
         }
 
-        .par-col p {
+        .case-study-card p {
             font-size: 0.95rem;
+            line-height: 1.65;
+            color: var(--text-secondary);
+            margin-bottom: 0;
         }
 
-        .project-metrics {
+        /* Project Subgrid (Cards 2 & 3) */
+        .projects-subgrid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
+
+        .project-secondary-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 2.5rem;
             display: flex;
-            gap: 2rem;
-            border-top: 1px solid var(--border-subtle);
-            padding-top: 2rem;
-            flex-wrap: wrap;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
         }
 
-        .metric {
+        .project-secondary-card:hover {
+            border-color: var(--accent-gold);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            transform: translateY(-4px);
+        }
+
+        .project-secondary-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 100%;
+            background: var(--accent-gold);
+        }
+
+        .project-secondary-card.card-design::before {
+            background: var(--accent-teal);
+        }
+
+        .project-sec-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.85rem;
+            color: var(--text-primary);
+            margin-bottom: 0.3rem;
+            font-weight: 700;
+        }
+
+        .project-sec-meta {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-bottom: 1.2rem;
+        }
+
+        .project-sec-image {
+            width: 100%;
+            height: 200px;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid var(--border-subtle);
+            margin-bottom: 1.5rem;
+            background: var(--bg-tertiary);
+        }
+
+        .project-sec-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            transition: transform 0.4s ease;
+        }
+
+        .project-secondary-card:hover .project-sec-image img {
+            transform: scale(1.05);
+        }
+
+        .nitex-par {
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .nitex-par-item h5 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .nitex-par-item p {
+            font-size: 0.92rem;
+            margin: 0;
+            line-height: 1.55;
+        }
+
+        .project-metrics-strip {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 1.25rem;
+            margin-top: auto;
+        }
+
+        .project-metric-item {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.82rem;
             color: var(--accent-gold);
         }
 
+        /* Design & Visual Card Specifics */
+        .visual-thumbnails-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .visual-thumb {
+            height: 130px;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid var(--border-subtle);
+            background: var(--bg-tertiary);
+        }
+
+        .visual-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .visual-thumb:hover img {
+            transform: scale(1.06);
+        }
+
+        .design-copy {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
         @media (max-width: 992px) {
-            .project-card {
-                padding: 2rem;
+            .projects-subgrid {
+                grid-template-columns: 1fr;
             }
-
-            .project-split {
-                flex-direction: column;
-            }
-
-            .project-image-box {
-                width: 100%;
-                height: 300px;
-                margin-top: 2rem;
+            .featured-flagship-card {
+                padding: 2.2rem;
             }
         }
 
@@ -1268,25 +1520,28 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
-            margin-bottom: 4rem;
+            margin-bottom: 3.5rem;
         }
 
         .edu-card {
             background: var(--bg-secondary);
             padding: 2rem;
             border-top: 2px solid var(--border-subtle);
-            transition: border-color 0.3s;
+            border-radius: 0 0 8px 8px;
+            transition: border-color 0.3s, transform 0.3s;
         }
 
         .edu-card:hover {
             border-top-color: var(--accent-gold);
+            transform: translateY(-4px);
         }
 
         .edu-degree {
             font-family: 'Barlow Condensed', sans-serif;
-            font-size: 1.3rem;
+            font-size: 1.35rem;
             color: var(--text-primary);
             margin-bottom: 0.5rem;
+            font-weight: 600;
         }
 
         .edu-inst {
@@ -1294,20 +1549,20 @@
             color: var(--text-secondary);
             margin-bottom: 1rem;
             font-size: 0.95rem;
+            line-height: 1.5;
         }
 
         .edu-meta {
             font-family: 'JetBrains Mono', monospace;
             color: var(--accent-gold);
             font-size: 0.85rem;
-            display: flex;
-            justify-content: space-between;
         }
 
         .certs-container {
             background: var(--bg-secondary);
-            padding: 2rem;
+            padding: 2.5rem;
             border: 1px solid var(--border-subtle);
+            border-radius: 8px;
         }
 
         .certs-container h3 {
@@ -1315,6 +1570,8 @@
             font-size: 1.5rem;
             margin-bottom: 1.5rem;
             color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         .cert-list li {
@@ -1323,6 +1580,7 @@
             border-bottom: 1px solid var(--border-subtle);
             display: flex;
             justify-content: space-between;
+            align-items: center;
             flex-wrap: wrap;
             gap: 1rem;
         }
@@ -1350,57 +1608,67 @@
             }
         }
 
-        /* Languages & Volunteer */
+        /* Languages & Volunteer (Task 2b: Inline Languages List) */
         .split-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
         }
 
-        .lang-table {
-            width: 100%;
-            border-collapse: collapse;
+        .languages-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 2.5rem;
         }
 
-        .lang-table th {
-            text-align: left;
-            padding: 1rem;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
-            color: var(--text-muted);
+        .lang-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 1.25rem;
             border-bottom: 1px solid var(--border-subtle);
+            flex-wrap: wrap;
+            gap: 0.75rem;
         }
 
-        .lang-table td {
-            padding: 1.2rem 1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+        .lang-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
         }
 
         .lang-name {
-            font-weight: 500;
+            font-size: 1.15rem;
+            font-weight: 600;
             color: var(--text-primary);
-        }
-
-        .dots {
             display: flex;
-            gap: 4px;
+            align-items: center;
+            gap: 0.75rem;
         }
 
-        .dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--bg-tertiary);
+        .lang-name i {
+            color: var(--accent-gold);
+            font-size: 1rem;
         }
 
-        .dot.filled {
-            background: var(--accent-gold);
+        .lang-level {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--accent-teal);
+            background: rgba(26, 188, 180, 0.08);
+            border: 1px solid rgba(26, 188, 180, 0.3);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
         }
 
         .volunteer-card {
             background: var(--bg-secondary);
             padding: 2.5rem;
             border-left: 2px solid var(--accent-teal);
+            border-radius: 0 8px 8px 0;
             height: 100%;
         }
 
@@ -1426,6 +1694,7 @@
             position: relative;
             margin-bottom: 0.5rem;
             color: var(--text-secondary);
+            line-height: 1.6;
         }
 
         .volunteer-card ul li::before {
@@ -1443,13 +1712,13 @@
 
         /* Contact Section */
         #contact {
-            background: linear-gradient(to bottom, var(--bg-primary) 0%, rgba(10, 12, 15, 0.85) 50%, rgba(10, 12, 15, 0.95) 100%), url("Image/Image%204.jpg") no-repeat center top/cover;
+            background: linear-gradient(to bottom, var(--bg-primary) 0%, rgba(10, 12, 15, 0.85) 50%, rgba(10, 12, 15, 0.95) 100%), url("Image/contact-bg.jpg") no-repeat center top/cover;
             border-top: 1px solid var(--border-subtle);
             padding: 10rem 5%;
         }
 
         .contact-container {
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
             text-align: center;
             position: relative;
@@ -1462,7 +1731,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             font-family: 'Barlow Condensed', sans-serif;
-            font-size: 10rem;
+            font-size: clamp(4rem, 10vw, 10rem);
             font-weight: 600;
             color: rgba(255, 255, 255, 0.02);
             z-index: -1;
@@ -1478,21 +1747,22 @@
 
         .contact-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(2, 1fr);
             gap: 1.5rem;
             margin-bottom: 3rem;
         }
 
         .contact-card {
-            background: rgba(17, 20, 24, 0.7);
+            background: rgba(17, 20, 24, 0.75);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border: 1px solid var(--border-subtle);
-            padding: 2rem;
+            padding: 1.8rem;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 1rem;
-            transition: transform 0.3s;
+            gap: 0.8rem;
+            transition: transform 0.3s, border-color 0.3s;
             border-radius: 8px;
         }
 
@@ -1508,17 +1778,14 @@
 
         .contact-card span {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             color: var(--text-primary);
+            word-break: break-word;
         }
 
         @media (max-width: 768px) {
             .contact-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .contact-bg-text {
-                font-size: 5rem;
             }
         }
 
@@ -1538,14 +1805,23 @@
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.85rem;
             color: var(--text-muted);
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .footer-updated {
+            font-size: 0.78rem;
+            color: var(--accent-gold);
         }
 
         .footer-center img {
-            width: 30px;
-            height: 30px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
-            opacity: 0.5;
-            transition: 0.3s;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+            border: 1px solid var(--accent-gold);
         }
 
         .footer-center img:hover {
@@ -1559,12 +1835,14 @@
 
         .footer-right a {
             color: var(--text-muted);
-            font-size: 1.2rem;
-            transition: color 0.3s;
+            font-size: 1.25rem;
+            transition: color 0.3s, transform 0.3s;
+            padding: 0.2rem;
         }
 
         .footer-right a:hover {
             color: var(--accent-gold);
+            transform: translateY(-2px);
         }
 
         @media (max-width: 600px) {
@@ -1572,9 +1850,12 @@
                 flex-direction: column;
                 text-align: center;
             }
+            .footer-left {
+                align-items: center;
+            }
         }
 
-        /* Animations */
+        /* Animation utilities */
         .animate-fade {
             opacity: 0;
             transform: translateY(30px);
@@ -1599,7 +1880,6 @@
         }
 
         @media (prefers-reduced-motion: reduce) {
-
             .animate-fade,
             .animate-slide-left,
             .animate-slide-right {
@@ -1619,443 +1899,525 @@
 </head>
 
 <body>
-    <div id="scroll-progress"></div>
+    <!-- Skip to main content link for keyboard-only navigation -->
+    <a href="#main-content" class="skip-link font-mono">Skip to main content</a>
 
-    <nav>
-        <div class="nav-brand">
-            <img src="Image/Icon%20Logo.png" alt="Logo">
-            <span>Md. Tasnim Niloy</span>
-        </div>
-        <div class="nav-links">
-            <a href="#home" class="active">Home</a>
-            <a href="#about">About</a>
-            <a href="#experience">Experience</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Portfolio</a>
-            <a href="#education">Education</a>
-            <a href="#contact">Contact</a>
-        </div>
-        <div class="hamburger">
-            <span></span><span></span><span></span>
-        </div>
-    </nav>
+    <!-- Top scroll progress indicator -->
+    <div id="scroll-progress" aria-hidden="true"></div>
 
-    <main>
+    <!-- Navigation Header -->
+    <header>
+        <nav aria-label="Main Navigation">
+            <div class="nav-brand">
+                <img src="Image/icon-logo.png" alt="Tasnim Niloy logo">
+                <span>Md. Tasnim Niloy</span>
+            </div>
+            <div class="nav-links" id="nav-links-menu">
+                <a href="#home" class="active">Home</a>
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Selected Work</a>
+                <a href="#education">Education</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links-menu">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main id="main-content">
         <!-- HERO SECTION -->
-        <section id="home" class="hero">
-            <div class="hero-bg-grid"></div>
-            <div class="hero-orb-1"></div>
-            <div class="hero-orb-2"></div>
+        <section id="home" class="hero" aria-label="Introduction">
+            <div class="hero-bg-grid" aria-hidden="true"></div>
+            <div class="hero-orb-1" aria-hidden="true"></div>
+            <div class="hero-orb-2" aria-hidden="true"></div>
 
             <div class="hero-content animate-fade">
                 <span class="label font-mono">// DATA-DRIVEN PROFESSIONAL</span>
                 <h1 class="font-display">Md. Tasnim Sarder Niloy</h1>
 
-                <div class="typewriter-container">
-                    <span class="typewriter-text"></span><span class="typewriter-cursor">|</span>
+                <div class="typewriter-container" aria-label="Role title">
+                    <span class="typewriter-text">Client Operations & Data Specialist</span><span class="typewriter-cursor" aria-hidden="true">|</span>
                 </div>
 
-                <p class="tagline">4+ years turning data into decisions, relationships into revenue.</p>
+                <p class="tagline">4+ years turning client relationships into revenue and messy data into decisions — and building the tools that do it.</p>
 
                 <div class="hero-actions">
-                    <a href="CV/Md_Tasnim_Sarder_Niloy%20Updated%20CV%202026.pdf" download
-                        class="btn btn-primary">Download CV</a>
-                    <a href="#projects" class="btn btn-secondary">View My Work</a>
+                    <a href="CV/Tasnim-Sarder-Niloy-CV.pdf" download="Tasnim-Sarder-Niloy-CV.pdf" class="btn btn-primary">
+                        <i class="fa-solid fa-download"></i> Download CV
+                    </a>
+                    <a href="#projects" class="btn btn-secondary">
+                        <i class="fa-solid fa-arrow-right"></i> View My Work
+                    </a>
                 </div>
 
                 <div class="contact-chips">
-                    <a href="mailto:tasnimsarder42@gmail.com" class="chip"><i class="fa-solid fa-envelope"></i>
-                        tasnimsarder42@gmail.com</a>
-                    <a href="https://wa.me/8801857188429" target="_blank" class="chip"><i
-                            class="fa-brands fa-whatsapp"></i> +880 1857-188429</a>
-                    <a href="https://www.behance.net/tasnimniloy42" target="_blank" class="chip"><i
-                            class="fa-brands fa-behance"></i> behance.net/tasnimniloy42</a>
-                    <a href="https://linkedin.com/in/tasnimsarder42" target="_blank" class="chip"><i
-                            class="fa-brands fa-linkedin"></i> linkedin.com/in/tasnimsarder42</a>
+                    <a href="mailto:tasnimsarder42@gmail.com" class="chip" aria-label="Email Tasnim">
+                        <i class="fa-solid fa-envelope"></i> tasnimsarder42@gmail.com
+                    </a>
+                    <a href="https://wa.me/8801857188429" target="_blank" rel="noopener noreferrer" class="chip" aria-label="Chat on WhatsApp">
+                        <i class="fa-brands fa-whatsapp"></i> +880 1857-188429
+                    </a>
+                    <a href="https://github.com/tasnimsarder42-hash" target="_blank" rel="noopener noreferrer" class="chip" aria-label="GitHub Profile">
+                        <i class="fa-brands fa-github"></i> github.com/tasnimsarder42-hash
+                    </a>
+                    <a href="https://linkedin.com/in/tasnimsarder42" target="_blank" rel="noopener noreferrer" class="chip" aria-label="LinkedIn Profile">
+                        <i class="fa-brands fa-linkedin"></i> linkedin.com/in/tasnimsarder42
+                    </a>
+                    <a href="https://www.behance.net/tasnimniloy42" target="_blank" rel="noopener noreferrer" class="chip" aria-label="Behance Profile">
+                        <i class="fa-brands fa-behance"></i> behance.net/tasnimniloy42
+                    </a>
                 </div>
             </div>
 
             <div class="hero-visual animate-fade" style="transition-delay: 0.2s;">
                 <div class="hero-image-wrapper">
-                    <div class="dashed-ring"></div>
-                    <img src="Image/Portfolio%20Picture.jpg" alt="Md. Tasnim Sarder Niloy" class="hero-avatar">
+                    <div class="dashed-ring" aria-hidden="true"></div>
+                    <img src="Image/portfolio-picture.jpg" alt="Portrait of Md. Tasnim Sarder Niloy, Client Operations & Data Specialist" class="hero-avatar">
                     <div class="stat-badge badge-1"><i class="fa-solid fa-briefcase"></i> 4+ Years Experience</div>
-                    <div class="stat-badge badge-2"><i class="fa-solid fa-bolt"></i> 30% Efficiency Boost</div>
-                    <div class="stat-badge badge-3"><i class="fa-solid fa-database"></i> 4,000+ Product DB</div>
-                    <div class="stat-badge badge-4"><i class="fa-solid fa-star"></i> 95% Client Satisfaction</div>
+                    <div class="stat-badge badge-2"><i class="fa-solid fa-database"></i> 4,000+ Product Database</div>
+                    <div class="stat-badge badge-3"><i class="fa-solid fa-star"></i> 95% Client Satisfaction</div>
+                    <div class="stat-badge badge-4"><i class="fa-solid fa-code"></i> 1 Platform Built Solo</div>
                 </div>
             </div>
 
-            <a href="#about" class="scroll-down"><i class="fa-solid fa-chevron-down"></i></a>
+            <a href="#about" class="scroll-down" aria-label="Scroll to About section"><i class="fa-solid fa-chevron-down"></i></a>
         </section>
 
         <!-- ABOUT SECTION -->
-        <section id="about">
-            <div class="section-label">// 01 — ABOUT ME</div>
+        <section id="about" aria-label="About Me">
+            <div class="section-label font-mono">// 01 — ABOUT ME</div>
 
             <div class="about-grid">
                 <div class="about-text animate-slide-left">
                     <h2 class="section-heading">Professional Summary</h2>
-                    <p>Dynamic Sales & Operations Specialist with 4+ years of cross-functional experience driving sales
-                        revenue, optimizing data workflows, and executing high-conversion digital content strategies.
-                        Proven ability to leverage data analytics to scale B2B partnerships and manage complex 4,000+
-                        item databases, improving operational efficiency by 30%.</p>
-                    <p>Adept at utilizing CRM tools and cross-team collaboration to consistently exceed targets and
-                        deliver measurable business growth.</p>
+                    <p>Client Operations & Data Specialist with 4+ years of cross-functional experience driving client retention, streamlining operational data workflows, and executing high-conversion digital strategies.</p>
+                    <p>Proven track record in managing client lifecycles, maintaining structured databases of 4,000+ items with 30% operational efficiency improvements, and independently architecting automation software to eliminate repetitive business bottlenecks.</p>
+                    <p>Adept at connecting client-facing operations with robust technical workflows to deliver measurable, sustained business value.</p>
 
                     <div class="image-collage">
-                        <img src="Image/Image%201.jpg" alt="Professional Work 1">
-                        <img src="Image/Image%202.jpg" alt="Professional Work 2">
+                        <img src="Image/work-01.jpg" alt="Visual marketing collateral and design created by Tasnim">
+                        <img src="Image/work-02.jpg" alt="Promotional graphics and campaign collateral sample">
                     </div>
                 </div>
 
+                <!-- Hard-coded fallback numbers in HTML so stats render correctly regardless of JS (Task 2a) -->
                 <div class="about-stats animate-slide-right">
                     <div class="stat-card counter-card">
-                        <div class="num counter-num" data-target="4">0+</div>
-                        <div class="desc">Years of Experience</div>
+                        <div class="num counter-num" data-target="4" data-suffix="+">4+</div>
+                        <div class="desc">Years Experience</div>
                     </div>
                     <div class="stat-card counter-card">
-                        <div class="num counter-num" data-target="30">0%</div>
-                        <div class="desc">Operational Efficiency Improvement</div>
+                        <div class="num counter-num" data-target="30" data-suffix="%">30%</div>
+                        <div class="desc">Operational Efficiency Gain</div>
                     </div>
                     <div class="stat-card counter-card">
-                        <div class="num counter-num" data-target="35">0%</div>
+                        <div class="num counter-num" data-target="35" data-suffix="%">35%</div>
                         <div class="desc">Audience Engagement Growth</div>
                     </div>
                     <div class="stat-card counter-card">
-                        <div class="num counter-num" data-target="80">0%</div>
+                        <div class="num counter-num" data-target="80" data-suffix="%">80%</div>
                         <div class="desc">Inventory Speed Improvement</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- EXPERIENCE SECTION -->
-        <section id="experience">
-            <div class="section-label">// 02 — WORK EXPERIENCE</div>
+        <!-- EXPERIENCE SECTION (Task 1) -->
+        <section id="experience" aria-label="Work Experience">
+            <div class="section-label font-mono">// 02 — WORK EXPERIENCE</div>
             <h2 class="section-heading">Career Journey</h2>
+
             <div class="timeline">
-                <!-- Hardcoded for now as per original request, but easily movable to data.js -->
+                <!-- 1. Toppers Academy [CURRENT] -->
                 <div class="timeline-item animate-slide-left">
                     <div class="timeline-card">
                         <div class="badge-current">CURRENT</div>
-                        <h3 class="timeline-role">Client Relationship Executive</h3>
-                        <div class="timeline-company">Sonali Sourav Tours & Travels</div>
-                        <div class="timeline-meta"><span><i class="fa-regular fa-calendar"></i> Jan 2026 –
-                                Present</span><span><i class="fa-solid fa-location-dot"></i> Dhaka</span></div>
+                        <h3 class="timeline-role">Client Relationship Manager</h3>
+                        <div class="timeline-company">Toppers Academy</div>
+                        <div class="timeline-meta">
+                            <span><i class="fa-regular fa-calendar"></i> Aug 2026 – Present</span>
+                            <span><i class="fa-solid fa-location-dot"></i> Dhaka</span>
+                        </div>
                         <ul class="timeline-desc">
-                            <li>Act as the primary point of contact for building and maintaining strong, long-term
-                                client relationships.</li>
-                            <li>Provide expert guidance on migration and visa processes to ensure clients receive
-                                accurate, tailored information.</li>
-                            <li>Collaborate with internal teams to ensure all client documentation and visa requirements
-                                are met with high precision.</li>
+                            <li>Manage client and student interactions, follow-ups, and service-related information while maintaining an organised, responsive client experience.</li>
+                            <li>Maintain accurate client/student records across operational tracking systems; identify missing or inconsistent information and coordinate timely corrections.</li>
+                            <li>Advise students on IELTS preparation, study-abroad options, and application steps.</li>
+                            <li>Coordinate with internal teams to track activities and keep client documentation complete and on schedule.</li>
                         </ul>
                     </div>
                 </div>
+
+                <!-- 2. Sonali Sourav Tours & Travels -->
                 <div class="timeline-item animate-slide-right">
+                    <div class="timeline-card">
+                        <h3 class="timeline-role">Client Relationship Executive</h3>
+                        <div class="timeline-company">Sonali Sourav Tours & Travels</div>
+                        <div class="timeline-meta">
+                            <span><i class="fa-regular fa-calendar"></i> Jan 2026 – Aug 2026</span>
+                            <span><i class="fa-solid fa-location-dot"></i> Dhaka</span>
+                        </div>
+                        <ul class="timeline-desc">
+                            <li>Primary point of contact for migration and visa case files, maintaining accurate records and timely follow-up.</li>
+                            <li>Verified visa and migration documentation for accuracy and completeness before submission, reducing errors in client filings.</li>
+                            <li>Coordinated case-status updates with internal teams, travel partners, and consulates.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 3. ICT Layer -->
+                <div class="timeline-item animate-slide-left">
                     <div class="timeline-card">
                         <h3 class="timeline-role">Content Manager</h3>
                         <div class="timeline-company">ICT Layer</div>
-                        <div class="timeline-meta"><span><i class="fa-regular fa-calendar"></i> Sep 2025 – Dec
-                                2025</span><span><i class="fa-solid fa-location-dot"></i> Dhaka</span></div>
+                        <div class="timeline-meta">
+                            <span><i class="fa-regular fa-calendar"></i> Sep 2025 – Dec 2025</span>
+                            <span><i class="fa-solid fa-location-dot"></i> Dhaka</span>
+                        </div>
                         <ul class="timeline-desc">
-                            <li>Orchestrated comprehensive digital content strategies across platforms using CMS tools,
-                                boosting target audience engagement and web traffic by 35%.</li>
-                            <li>Directed cross-functional workflows between designers and developers to deliver on-brand
-                                marketing assets, adhering to strict release deadlines 100% of the time.</li>
-                            <li>Analyzed user interaction metrics and A/B tested content formats to maximize inbound
-                                lead generation and optimize digital presence.</li>
+                            <li>Managed digital content and campaign assets across CMS platforms, tracking performance metrics tied to a 35% increase in audience engagement.</li>
+                            <li>Ran A/B tests on content formats and analysed user-interaction data to guide lead-generation strategy.</li>
+                            <li>Coordinated designer and developer workflows with 100% on-time delivery against release schedules.</li>
                         </ul>
                     </div>
                 </div>
-                <div class="timeline-item animate-slide-left">
+
+                <!-- 4. Nitex -->
+                <div class="timeline-item animate-slide-right">
                     <div class="timeline-card">
                         <h3 class="timeline-role">Data Operator</h3>
                         <div class="timeline-company">Nitex</div>
-                        <div class="timeline-meta"><span><i class="fa-regular fa-calendar"></i> Feb 2024 – Aug
-                                2024</span><span><i class="fa-solid fa-location-dot"></i> Dhaka</span></div>
+                        <div class="timeline-meta">
+                            <span><i class="fa-regular fa-calendar"></i> Feb 2024 – Aug 2025</span>
+                            <span><i class="fa-solid fa-location-dot"></i> Dhaka</span>
+                        </div>
                         <ul class="timeline-desc">
-                            <li>Processed and analyzed supply chain datasets for over 4,000 products using Excel and
-                                data tracking tools, delivering actionable insights to stakeholders.</li>
-                            <li>Formulated automated data categorization structures, significantly reducing manual data
-                                retrieval times and resolving operational bottlenecks by 30%.</li>
-                            <li>Visualized probable business outcomes based on historical inventory metrics, enabling
-                                senior leadership to execute optimized stocking strategies.</li>
+                            <li>Processed and maintained structured datasets covering 4,000+ products in Excel.</li>
+                            <li>Designed automated data-categorisation structures that cut manual retrieval time and resolved operational bottlenecks by 30%.</li>
+                            <li>Compiled and visualised inventory and supply-chain metrics for leadership stocking and planning decisions.</li>
                         </ul>
                     </div>
                 </div>
-                <div class="timeline-item animate-slide-right">
-                    <div class="timeline-card">
-                        <h3 class="timeline-role">Sales & Support Representative</h3>
-                        <div class="timeline-company">10 Minute School</div>
-                        <div class="timeline-meta"><span><i class="fa-regular fa-calendar"></i> Apr 2022 – May
-                                2023</span><span><i class="fa-solid fa-location-dot"></i> Dhaka</span></div>
-                        <ul class="timeline-desc">
-                            <li>Executed high-volume outbound telesales and inbound consulting workflows, matching 50+
-                                students daily with customized educational solutions.</li>
-                            <li>Leveraged student demographic data to recommend targeted courses, exceeding monthly
-                                conversion targets and achieving a 95% customer satisfaction score.</li>
-                        </ul>
-                    </div>
-                </div>
+
+                <!-- 5. Digital Dropouts -->
                 <div class="timeline-item animate-slide-left">
                     <div class="timeline-card">
                         <h3 class="timeline-role">Video Editor</h3>
                         <div class="timeline-company">Digital Dropouts</div>
-                        <div class="timeline-meta"><span><i class="fa-regular fa-calendar"></i> Sep 2023 – Dec
-                                2023</span><span><i class="fa-solid fa-location-dot"></i> Dhaka</span></div>
+                        <div class="timeline-meta">
+                            <span><i class="fa-regular fa-calendar"></i> Sep 2023 – Dec 2023</span>
+                            <span><i class="fa-solid fa-location-dot"></i> Dhaka</span>
+                        </div>
                         <ul class="timeline-desc">
-                            <li>Edited 30+ high-retention video projects using Final Cut Pro, elevating client social
-                                media engagement by 20%.</li>
+                            <li>Edited 30+ video projects in Final Cut Pro, supporting a 20% lift in client social media engagement.</li>
                         </ul>
                     </div>
                 </div>
+
+                <!-- 6. 10 Minute School -->
                 <div class="timeline-item animate-slide-right">
                     <div class="timeline-card">
-                        <h3 class="timeline-role">Graphic Designer</h3>
-                        <div class="timeline-company">UY Lab | Internship</div>
-                        <div class="timeline-meta"><span><i class="fa-regular fa-calendar"></i> Apr 2021 – Jun
-                                2021</span><span><i class="fa-solid fa-location-dot"></i> Dhaka</span></div>
+                        <h3 class="timeline-role">Sales & Support Representative</h3>
+                        <div class="timeline-company">10 Minute School</div>
+                        <div class="timeline-meta">
+                            <span><i class="fa-regular fa-calendar"></i> Apr 2022 – Aug 2023</span>
+                            <span><i class="fa-solid fa-location-dot"></i> Dhaka</span>
+                        </div>
                         <ul class="timeline-desc">
-                            <li>Created targeted visual marketing collateral catering to distinct client brand
-                                guidelines.</li>
+                            <li>Matched 50+ students daily with relevant course offerings using student demographic and needs data.</li>
+                            <li>Exceeded monthly conversion targets and held a 95% customer-satisfaction score.</li>
                         </ul>
                     </div>
                 </div>
-                <div class="timeline-item animate-slide-left">
-                    <div class="timeline-card">
-                        <h3 class="timeline-role">Sales Executive</h3>
-                        <div class="timeline-company">Puma | Part-time</div>
-                        <div class="timeline-meta"><span><i class="fa-regular fa-calendar"></i> May 2019 – Oct
-                                2019</span><span><i class="fa-solid fa-location-dot"></i> Dhaka</span></div>
-                        <ul class="timeline-desc">
-                            <li>Drove direct retail sales through advanced upselling and personalized B2C customer
-                                service techniques.</li>
-                        </ul>
-                    </div>
+            </div>
+
+            <!-- Early Career Compact Strip (Items 7–9 collapsed) -->
+            <div class="early-career-strip animate-fade">
+                <div class="early-career-header">
+                    <i class="fa-solid fa-seedling"></i> Early Career Foundational Experience
                 </div>
-                <div class="timeline-item animate-slide-right">
-                    <div class="timeline-card">
-                        <h3 class="timeline-role">Sales Associate</h3>
-                        <div class="timeline-company">Aarong | Part-time</div>
-                        <div class="timeline-meta"><span><i class="fa-regular fa-calendar"></i> Apr 2017 – May
-                                2018</span><span><i class="fa-solid fa-location-dot"></i> Dhaka</span></div>
-                        <ul class="timeline-desc">
-                            <li>Drove direct retail sales through advanced upselling and personalized B2C customer
-                                service techniques.</li>
-                        </ul>
+                <div class="early-career-list">
+                    <div class="early-career-item">
+                        <div class="early-career-left">
+                            <span class="early-career-bullet">▹</span>
+                            <span class="early-career-role">Graphic Designer (Intern)</span>
+                            <span class="early-career-sep">—</span>
+                            <span class="early-career-company">UY Lab, Dhaka</span>
+                        </div>
+                        <span class="early-career-date">Apr 2021 – Jun 2021</span>
+                    </div>
+                    <div class="early-career-item">
+                        <div class="early-career-left">
+                            <span class="early-career-bullet">▹</span>
+                            <span class="early-career-role">Sales Executive</span>
+                            <span class="early-career-sep">—</span>
+                            <span class="early-career-company">Puma, Dhaka</span>
+                        </div>
+                        <span class="early-career-date">May 2019 – Oct 2019</span>
+                    </div>
+                    <div class="early-career-item">
+                        <div class="early-career-left">
+                            <span class="early-career-bullet">▹</span>
+                            <span class="early-career-role">Sales Associate</span>
+                            <span class="early-career-sep">—</span>
+                            <span class="early-career-company">Aarong, Dhaka</span>
+                        </div>
+                        <span class="early-career-date">Apr 2017 – May 2018</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SKILLS SECTION -->
-        <section id="skills">
-            <div class="section-label">// 03 — SKILLS & EXPERTISE</div>
+        <!-- SKILLS SECTION (Task 3: Grouped Tags, No Arbitrary % Bars) -->
+        <section id="skills" aria-label="Skills and Expertise">
+            <div class="section-label font-mono">// 03 — SKILLS & EXPERTISE</div>
             <h2 class="section-heading">Core Competencies</h2>
 
             <div class="skills-grid">
+                <!-- Group 1: Client & Revenue -->
                 <div class="skill-card animate-fade">
                     <div class="skill-icon"><i class="fa-solid fa-briefcase"></i></div>
-                    <h3 class="skill-title">Business Skills</h3>
-                    <div class="skill-tags"><span class="tag">B2B Sales</span><span class="tag">B2C Sales</span><span
-                            class="tag">Operations Management</span><span class="tag">Content Strategy &
-                            Development</span><span class="tag">Client Relationship Management</span><span
-                            class="tag">CRM Management</span><span class="tag">Telemarketing</span><span
-                            class="tag">Project Management</span></div>
+                    <h3 class="skill-title">Client & Revenue</h3>
+                    <div class="skill-tags">
+                        <span class="tag">B2B Sales</span>
+                        <span class="tag">B2C Sales</span>
+                        <span class="tag">Client Relationship Management</span>
+                        <span class="tag">CRM Management</span>
+                        <span class="tag">Account Follow-up & Retention</span>
+                        <span class="tag">Consultative Selling</span>
+                        <span class="tag">Telemarketing & Consulting</span>
+                        <span class="tag">Customer Support</span>
+                        <span class="tag">Lead Qualification</span>
+                    </div>
                 </div>
+
+                <!-- Group 2: Data & Operations -->
                 <div class="skill-card animate-fade" style="transition-delay: 0.1s;">
-                    <div class="skill-icon"><i class="fa-solid fa-chart-bar"></i></div>
-                    <h3 class="skill-title">Technical Skills</h3>
-                    <div class="skill-tags"><span class="tag">Data Analysis</span><span class="tag">Data Entry &
-                            Management</span><span class="tag">Performance Analytics</span><span class="tag">AI Model
-                            Optimization</span><span class="tag">Data Visualization & Reporting</span></div>
+                    <div class="skill-icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <h3 class="skill-title">Data & Operations</h3>
+                    <div class="skill-tags">
+                        <span class="tag">Data Validation & Quality Control</span>
+                        <span class="tag">Record & Documentation Management</span>
+                        <span class="tag">Reporting & Performance Tracking</span>
+                        <span class="tag">Document Verification</span>
+                        <span class="tag">CRM & Client Record Management</span>
+                        <span class="tag">Process Automation</span>
+                        <span class="tag">Supply Chain Tracking</span>
+                        <span class="tag">Inventory Optimization</span>
+                        <span class="tag">Data Categorization</span>
+                        <span class="tag">Performance Analytics</span>
+                        <span class="tag">Operations Management</span>
+                    </div>
                 </div>
+
+                <!-- Group 3: Tools -->
                 <div class="skill-card animate-fade" style="transition-delay: 0.2s;">
-                    <div class="skill-icon"><i class="fa-solid fa-tools"></i></div>
-                    <h3 class="skill-title">Tools & Software</h3>
-                    <div class="skill-tags"><span class="tag">MS Excel</span><span class="tag">Content Management
-                            Systems (CMS)</span><span class="tag">Final Cut Pro</span><span class="tag">Adobe Creative
-                            Suite</span><span class="tag">Adobe Professional</span></div>
-                </div>
-            </div>
-
-            <div class="proficiency-bars animate-fade" style="transition-delay: 0.3s;">
-                <div class="bar-item">
-                    <div class="bar-label"><span>B2B/B2C Sales</span><span>90%</span></div>
-                    <div class="bar-bg">
-                        <div class="bar-fill skill-bar-fill" data-width="90%"></div>
-                    </div>
-                </div>
-                <div class="bar-item">
-                    <div class="bar-label"><span>CRM & Client Management</span><span>88%</span></div>
-                    <div class="bar-bg">
-                        <div class="bar-fill skill-bar-fill" data-width="88%"></div>
-                    </div>
-                </div>
-                <div class="bar-item">
-                    <div class="bar-label"><span>Content Strategy</span><span>85%</span></div>
-                    <div class="bar-bg">
-                        <div class="bar-fill skill-bar-fill" data-width="85%"></div>
-                    </div>
-                </div>
-                <div class="bar-item">
-                    <div class="bar-label"><span>Data Analysis & Reporting</span><span>82%</span></div>
-                    <div class="bar-bg">
-                        <div class="bar-fill skill-bar-fill" data-width="82%"></div>
-                    </div>
-                </div>
-                <div class="bar-item">
-                    <div class="bar-label"><span>Operations Management</span><span>80%</span></div>
-                    <div class="bar-bg">
-                        <div class="bar-fill skill-bar-fill" data-width="80%"></div>
+                    <div class="skill-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                    <h3 class="skill-title">Tools</h3>
+                    <div class="skill-tags">
+                        <span class="tag">Python (basic)</span>
+                        <span class="tag">Google Workspace</span>
+                        <span class="tag">Selenium (automation)</span>
+                        <span class="tag">Git/GitHub</span>
+                        <span class="tag">MS Excel</span>
+                        <span class="tag">Adobe Acrobat Pro</span>
+                        <span class="tag">Content Management Systems (CMS)</span>
+                        <span class="tag">Final Cut Pro</span>
+                        <span class="tag">Adobe Creative Suite</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- DYNAMIC PORTFOLIO SECTION -->
-        <section id="projects">
-            <div class="section-label">// 04 — CREATIVE PORTFOLIO & IMPACT</div>
-            <h2 class="section-heading">Featured Work & Insights</h2>
+        <!-- SELECTED WORK SECTION (Task 4: Three-Card Grid with Flagship Bulkly V3) -->
+        <section id="projects" aria-label="Selected Work">
+            <div class="section-label font-mono">// 04 — SELECTED WORK</div>
+            <h2 class="section-heading">Selected Work</h2>
 
-            <!-- Nitex Featured Project (Injected via JS) -->
-            <div id="featured-project-container"></div>
+            <div class="projects-wrapper">
+                <!-- CARD 1: FEATURED FLAGSHIP (Bulkly V3) -->
+                <article class="featured-flagship-card animate-fade">
+                    <div class="flagship-header">
+                        <div class="flagship-title-group">
+                            <div class="project-badge-flagship">
+                                <i class="fa-solid fa-star"></i> FLAGSHIP AUTOMATION PLATFORM
+                            </div>
+                            <h3 style="margin-top: 1rem;">Bulkly V3 — Omnichannel Marketing & Outreach Hub</h3>
+                            <div class="flagship-tagline">An AI-powered outreach platform for travel and migration agencies.</div>
+                            <div class="flagship-role"><i class="fa-solid fa-user-check" style="color: var(--accent-gold);"></i> Role: Sole designer and developer</div>
+                        </div>
+                    </div>
 
-            <!-- Behance Projects Gallery (Injected via JS) -->
-            <h3 class="portfolio-header">Design & Illustration Projects</h3>
-            <div id="behance-grid" class="behance-grid"></div>
+                    <div class="stack-tags" aria-label="Technology Stack">
+                        <span class="stack-tag">Python 3.14</span>
+                        <span class="stack-tag">CustomTkinter</span>
+                        <span class="stack-tag">Selenium WebDriver</span>
+                        <span class="stack-tag">Google Gemini API</span>
+                        <span class="stack-tag">FastAPI</span>
+                        <span class="stack-tag">Next.js</span>
+                        <span class="stack-tag">PyInstaller</span>
+                    </div>
 
-            <!-- LinkedIn Activity Feed (Injected via JS) -->
-            <h3 class="portfolio-header">Recent LinkedIn Insights</h3>
-            <div id="linkedin-grid" class="linkedin-grid"></div>
+                    <div class="flagship-actions">
+                        <a href="https://github.com/tasnimsarder42-hash/Project-Bulkly" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                            <i class="fa-brands fa-github"></i> View on GitHub
+                        </a>
+                        <button class="case-study-toggle-btn" id="bulkly-toggle" aria-expanded="false" aria-controls="bulkly-case-study">
+                            <span>Read Full Case Study</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                    </div>
 
+                    <!-- Expandable Detail Panel / Case Study Drawer -->
+                    <div class="case-study-drawer" id="bulkly-case-study">
+                        <div class="case-study-grid">
+                            <div class="case-study-card">
+                                <h4><i class="fa-solid fa-triangle-exclamation"></i> Problem</h4>
+                                <p>At a travel and migration agency, client outreach was fully manual: one message at a time, across five different platforms, with no record of who had been contacted or what stage their enquiry had reached. Follow-ups were missed and lead data lived in scattered spreadsheets.</p>
+                            </div>
+                            <div class="case-study-card">
+                                <h4><i class="fa-solid fa-cubes"></i> What I Built</h4>
+                                <p>Bulkly is a desktop application that unifies outreach across WhatsApp, Instagram, Facebook Messenger, Telegram, and Threads into a single interface. It imports leads from Excel, generates campaign templates in three tones (Friendly, Urgent, Professional), uses the Google Gemini API for context-aware smart replies, and includes batch tooling for building WhatsApp lead communities. Distributed as a standalone Windows executable.</p>
+                            </div>
+                            <div class="case-study-card">
+                                <h4><i class="fa-solid fa-compass-drafting"></i> How I Approached It</h4>
+                                <p>I designed the architecture, wrote the automation layer against Selenium WebDriver, built the dark-theme interface in CustomTkinter, and planned a web platform (FastAPI backend, Next.js front end) as the next phase. I documented the implementation plan and known issues as versioned specs before building each module.</p>
+                            </div>
+                            <div class="case-study-card">
+                                <h4><i class="fa-solid fa-lightbulb"></i> Why It Matters</h4>
+                                <p>I came to this from the operations side, not from engineering. I built it because I could see exactly where the manual process was leaking time, and I wanted to fix it rather than describe it.</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Subgrid for Card 2 and Card 3 -->
+                <div class="projects-subgrid">
+                    <!-- CARD 2: Product Catalogue Database Architecture (Nitex) -->
+                    <article class="project-secondary-card animate-slide-left">
+                        <h3 class="project-sec-title">Product Catalogue Database Architecture</h3>
+                        <div class="project-sec-meta">Nitex · Apr 2024 – Jun 2024</div>
+
+                        <div class="stack-tags" style="margin-bottom: 1.25rem;">
+                            <span class="stack-tag">Excel</span>
+                            <span class="stack-tag">Database Design</span>
+                            <span class="stack-tag">QR/SKU Systems</span>
+                            <span class="stack-tag">Process Automation</span>
+                        </div>
+
+                        <div class="project-sec-image">
+                            <img src="Image/work-03.jpg" alt="Nitex digital product catalogue and inventory database architecture structure">
+                        </div>
+
+                        <div class="nitex-par">
+                            <div class="nitex-par-item">
+                                <h5><i class="fa-solid fa-circle-exclamation" style="color:#ff4757;"></i> Problem</h5>
+                                <p>Physical inventory tracking was disorganised, causing supply-chain delays and repeated manual searches.</p>
+                            </div>
+                            <div class="nitex-par-item">
+                                <h5><i class="fa-solid fa-bolt" style="color:#ffa502;"></i> Action</h5>
+                                <p>Built a centralised digital database for 4,000+ unique products and designed a QR-based SKU system to automate inventory identification.</p>
+                            </div>
+                            <div class="nitex-par-item">
+                                <h5><i class="fa-solid fa-check-circle" style="color:#2ed573;"></i> Result</h5>
+                                <p>80% faster inventory identification, manual search errors eliminated, and consistent data accuracy across the organisation.</p>
+                            </div>
+                        </div>
+
+                        <div class="project-metrics-strip">
+                            <span class="project-metric-item">▹ 4,000+ Products Catalogued</span>
+                            <span class="project-metric-item">▹ 80% Faster Identification</span>
+                            <span class="project-metric-item">▹ 100% Data Accuracy</span>
+                        </div>
+                    </article>
+
+                    <!-- CARD 3: Design & Visual Work -->
+                    <article class="project-secondary-card card-design animate-slide-right">
+                        <h3 class="project-sec-title">Design & Visual Work</h3>
+                        <div class="project-sec-meta">Creative Direction & Multi-Channel Brand Assets</div>
+
+                        <div class="stack-tags" style="margin-bottom: 1.25rem;">
+                            <span class="stack-tag">Adobe Creative Suite</span>
+                            <span class="stack-tag">Final Cut Pro</span>
+                            <span class="stack-tag">Brand Collateral</span>
+                        </div>
+
+                        <div class="visual-thumbnails-row">
+                            <div class="visual-thumb">
+                                <img src="Image/work-01.jpg" alt="Marketing collateral and brand asset artwork">
+                            </div>
+                            <div class="visual-thumb">
+                                <img src="Image/work-02.jpg" alt="Creative promotional design and layout">
+                            </div>
+                        </div>
+
+                        <p class="design-copy">Marketing collateral, flyers, posters, and 30+ edited video projects across agency, brand, and internship client work. Built to elevate engagement through disciplined visual storytelling and precise typographic execution.</p>
+
+                        <div style="margin-top: auto; padding-top: 1.5rem; border-top: 1px solid var(--border-subtle);">
+                            <a href="https://www.behance.net/tasnimniloy42" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="width: 100%;">
+                                <i class="fa-brands fa-behance"></i> View on Behance
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
         </section>
 
-        <!-- EDUCATION SECTION -->
-        <section id="education">
-            <div class="section-label">// 05 — EDUCATION</div>
+        <!-- EDUCATION SECTION (Task 3: No GPA / CGPA Figures) -->
+        <section id="education" aria-label="Education and Certifications">
+            <div class="section-label font-mono">// 05 — EDUCATION</div>
             <h2 class="section-heading">Academic Background</h2>
 
             <div class="edu-grid">
                 <div class="edu-card animate-fade">
                     <div class="edu-degree">Bachelor of Arts in English</div>
                     <div class="edu-inst">National University, Bangladesh (NU)</div>
-                    <div class="edu-meta"><span>2022</span><span>CGPA: 2.38 / 4.00</span></div>
+                    <div class="edu-meta"><span>Graduated 2022</span></div>
                 </div>
                 <div class="edu-card animate-fade" style="transition-delay: 0.1s;">
                     <div class="edu-degree">Higher Secondary Certificate (HSC) — Business Studies</div>
                     <div class="edu-inst">Gulshan Commerce College</div>
-                    <div class="edu-meta"><span>2016</span><span>GPA: 4.00 / 5.00</span></div>
+                    <div class="edu-meta"><span>Passed 2016</span></div>
                 </div>
                 <div class="edu-card animate-fade" style="transition-delay: 0.2s;">
                     <div class="edu-degree">Secondary School Certificate (SSC) — Business Studies</div>
                     <div class="edu-inst">Banani Bidyaniketan School And College</div>
-                    <div class="edu-meta"><span>2014</span><span>GPA: 3.88 / 5.00</span></div>
+                    <div class="edu-meta"><span>Passed 2014</span></div>
                 </div>
             </div>
 
             <div class="certs-container animate-fade">
                 <h3>Certifications</h3>
                 <ul class="cert-list">
-                    <li><span class="cert-name">Professional Graphic Design</span><span class="cert-meta">UY Lab |
-                            Grade: A</span></li>
-                    <li><span class="cert-name">Diploma in Computer Graphics Design</span><span
-                            class="cert-meta">2014</span></li>
+                    <li>
+                        <span class="cert-name">Professional Graphic Design</span>
+                        <span class="cert-meta">UY Lab</span>
+                    </li>
+                    <li>
+                        <span class="cert-name">Diploma in Computer Graphics Design</span>
+                        <span class="cert-meta">2014</span>
+                    </li>
                 </ul>
             </div>
         </section>
 
-        <!-- LANGUAGES & VOLUNTEER -->
-        <section id="languages">
+        <!-- LANGUAGES & VOLUNTEER (Task 2b: Inline List, Hindi Removed) -->
+        <section id="languages" aria-label="Languages and Volunteer Experience">
             <div class="split-section">
                 <div class="animate-slide-left">
                     <h2 class="section-heading">Languages</h2>
-                    <table class="lang-table">
-                        <thead>
-                            <tr>
-                                <th>Language</th>
-                                <th>Reading</th>
-                                <th>Writing</th>
-                                <th>Speaking</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="lang-name">Bangla</td>
-                                <td>
-                                    <div class="dots">
-                                        <div class="dot filled"></div>
-                                        <div class="dot filled"></div>
-                                        <div class="dot filled"></div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="dots">
-                                        <div class="dot filled"></div>
-                                        <div class="dot filled"></div>
-                                        <div class="dot filled"></div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="dots">
-                                        <div class="dot filled"></div>
-                                        <div class="dot filled"></div>
-                                        <div class="dot filled"></div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="lang-name">English</td>
-                                <td>
-                                    <div class="dots">
-                                        <div class="dot filled"></div>
-                                        <div class="dot filled"></div>
-                                        <div class="dot filled"></div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="dots">
-                                        <div class="dot filled"></div>
-                                        <div class="dot filled"></div>
-                                        <div class="dot filled"></div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="dots">
-                                        <div class="dot filled"></div>
-                                        <div class="dot filled"></div>
-                                        <div class="dot filled"></div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="lang-name">Hindi</td>
-                                <td>
-                                    <div class="dots">
-                                        <div class="dot filled"></div>
-                                        <div class="dot"></div>
-                                        <div class="dot"></div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="dots">
-                                        <div class="dot filled"></div>
-                                        <div class="dot"></div>
-                                        <div class="dot"></div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="dots">
-                                        <div class="dot filled"></div>
-                                        <div class="dot filled"></div>
-                                        <div class="dot filled"></div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="languages-list">
+                        <div class="lang-item">
+                            <span class="lang-name font-mono"><i class="fa-solid fa-comment-dots"></i> Bangla</span>
+                            <span class="lang-level">Native</span>
+                        </div>
+                        <div class="lang-item">
+                            <span class="lang-name font-mono"><i class="fa-solid fa-globe"></i> English</span>
+                            <span class="lang-level">Full Professional Proficiency</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="animate-slide-right">
@@ -2072,411 +2434,232 @@
         </section>
 
         <!-- CONTACT SECTION -->
-        <section id="contact">
-            <div class="contact-bg-text">LET'S CONNECT</div>
-            <div class="section-label" style="justify-content: center;">// 06 — GET IN TOUCH</div>
+        <section id="contact" aria-label="Contact and Socials">
+            <div class="contact-bg-text" aria-hidden="true">LET'S CONNECT</div>
+            <div class="section-label font-mono" style="justify-content: center;">// 06 — GET IN TOUCH</div>
 
             <div class="contact-container animate-fade">
-                <p class="tagline">Open to new opportunities, collaborations, and conversations.</p>
+                <p class="tagline">Open to new career opportunities, operational partnerships, and high-impact discussions.</p>
+                
                 <div class="contact-grid">
-                    <a href="mailto:tasnimsarder42@gmail.com" class="contact-card"><i
-                            class="fa-solid fa-envelope"></i><span>tasnimsarder42@gmail.com</span></a>
-                    <a href="https://wa.me/8801857188429" target="_blank" class="contact-card"><i
-                            class="fa-brands fa-whatsapp"></i><span>+880 1857-188429</span></a>
-                    <a href="https://www.behance.net/tasnimniloy42" target="_blank" class="contact-card"><i
-                            class="fa-brands fa-behance"></i><span>behance.net/tasnimniloy42</span></a>
-                    <a href="https://linkedin.com/in/tasnimsarder42" target="_blank" class="contact-card"><i
-                            class="fa-brands fa-linkedin"></i><span>linkedin.com/in/tasnimsarder42</span></a>
+                    <a href="mailto:tasnimsarder42@gmail.com" class="contact-card" aria-label="Email Tasnim">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>tasnimsarder42@gmail.com</span>
+                    </a>
+                    <a href="https://wa.me/8801857188429" target="_blank" rel="noopener noreferrer" class="contact-card" aria-label="Chat via WhatsApp">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <span>+880 1857-188429</span>
+                    </a>
+                    <a href="https://github.com/tasnimsarder42-hash" target="_blank" rel="noopener noreferrer" class="contact-card" aria-label="View GitHub profile">
+                        <i class="fa-brands fa-github"></i>
+                        <span>github.com/tasnimsarder42-hash</span>
+                    </a>
+                    <a href="https://linkedin.com/in/tasnimsarder42" target="_blank" rel="noopener noreferrer" class="contact-card" aria-label="View LinkedIn profile">
+                        <i class="fa-brands fa-linkedin"></i>
+                        <span>linkedin.com/in/tasnimsarder42</span>
+                    </a>
+                    <a href="https://www.behance.net/tasnimniloy42" target="_blank" rel="noopener noreferrer" class="contact-card" style="grid-column: 1 / -1;" aria-label="View Behance portfolio">
+                        <i class="fa-brands fa-behance"></i>
+                        <span>behance.net/tasnimniloy42</span>
+                    </a>
                 </div>
-                <a href="CV/Md_Tasnim_Sarder_Niloy%20Updated%20CV%202026.pdf" download class="btn btn-primary"
-                    style="font-size: 1.2rem; padding: 1rem 3rem;">Download CV</a>
+
+                <a href="CV/Tasnim-Sarder-Niloy-CV.pdf" download="Tasnim-Sarder-Niloy-CV.pdf" class="btn btn-primary" style="font-size: 1.15rem; padding: 1rem 3rem;">
+                    <i class="fa-solid fa-download"></i> Download CV
+                </a>
             </div>
         </section>
     </main>
 
+    <!-- FOOTER -->
     <footer>
-        <div class="footer-left">© 2026 Md. Tasnim Sarder Niloy. All rights reserved.</div>
-        <div class="footer-center"><img src="Image/Icon%20Logo.png" alt="Icon"></div>
+        <div class="footer-left">
+            <span>© 2026 Md. Tasnim Sarder Niloy. All rights reserved.</span>
+            <span class="footer-updated">Last updated: September 2026</span>
+        </div>
+        <div class="footer-center">
+            <a href="#home" aria-label="Back to top">
+                <img src="Image/icon-logo.png" alt="Tasnim Niloy logo icon">
+            </a>
+        </div>
         <div class="footer-right">
-            <a href="mailto:tasnimsarder42@gmail.com"><i class="fa-solid fa-envelope"></i></a>
-            <a href="https://wa.me/8801857188429" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-            <a href="https://www.behance.net/tasnimniloy42" target="_blank"><i class="fa-brands fa-behance"></i></a>
-            <a href="https://linkedin.com/in/tasnimsarder42" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="mailto:tasnimsarder42@gmail.com" aria-label="Send email"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https://wa.me/8801857188429" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://github.com/tasnimsarder42-hash" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.behance.net/tasnimniloy42" target="_blank" rel="noopener noreferrer" aria-label="Behance"><i class="fa-brands fa-behance"></i></a>
+            <a href="https://linkedin.com/in/tasnimsarder42" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
         </div>
     </footer>
 
+    <!-- INTERACTIVE JAVASCRIPT -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            
-            // --- DYNAMIC DATA RENDERING (from data.js) ---
-            if (typeof PORTFOLIO_DATA !== 'undefined') {
-                const data = PORTFOLIO_DATA;
-
-                // 0. Apply Theme
-                if (data.theme) {
-                    const root = document.documentElement;
-                    root.style.setProperty('--accent-gold', data.theme.accentPrimary);
-                    root.style.setProperty('--accent-teal', data.theme.accentSecondary);
-                    root.style.setProperty('--bg-primary', data.theme.bgPrimary);
-                    if (data.theme.fontHeading) root.style.setProperty('--font-heading', data.theme.fontHeading);
-                    if (data.theme.fontBody) root.style.setProperty('--font-body', data.theme.fontBody);
-                    
-                    // Also update derived colors if possible (approximate)
-                    root.style.setProperty('--border-subtle', `${data.theme.accentPrimary}26`); // 15% opacity
-                    root.style.setProperty('--border-active', `${data.theme.accentPrimary}80`); // 50% opacity
-                }
-
-                // 1. Render Nav Brand
-                const navBrand = document.getElementById('nav-brand-container');
-                if(navBrand) {
-                    navBrand.innerHTML = `<img src="Image/Icon Logo.png" alt="Logo"><span>${data.personal.name}</span>`;
-                }
-
-                // 2. Render Hero Section
-                const heroContent = document.getElementById('hero-content-container');
-                if(heroContent) {
-                    heroContent.classList.add('animate-fade');
-                    heroContent.innerHTML = `
-                        <span class="label font-mono">// DATA-DRIVEN PROFESSIONAL</span>
-                        <h1 class="font-display">${data.personal.name}</h1>
-                        <div class="typewriter-container"><span class="typewriter-text"></span><span class="typewriter-cursor">|</span></div>
-                        <p class="tagline">${data.personal.tagline}</p>
-                        <div class="hero-actions">
-                            <a href="CV/Md_Tasnim_Sarder_Niloy Updated CV 2026.pdf" download class="btn btn-primary">Download CV</a>
-                            <a href="#projects" class="btn btn-secondary">View My Work</a>
-                        </div>
-                        <div class="contact-chips">
-                            <a href="mailto:${data.personal.contact.email}" class="chip"><i class="fa-solid fa-envelope"></i> ${data.personal.contact.email}</a>
-                            <a href="https://wa.me/${data.personal.contact.whatsapp}" target="_blank" class="chip"><i class="fa-brands fa-whatsapp"></i> +${data.personal.contact.phone.replace(/[^0-9]/g, '')}</a>
-                            <a href="${data.personal.contact.behance}" target="_blank" class="chip"><i class="fa-brands fa-behance"></i> ${data.personal.contact.behance.split('/').pop()}</a>
-                            <a href="${data.personal.contact.linkedin}" target="_blank" class="chip"><i class="fa-brands fa-linkedin"></i> ${data.personal.contact.linkedin.split('/').pop()}</a>
-                        </div>
-                    `;
-                }
-                const heroVisual = document.getElementById('hero-visual-container');
-                if(heroVisual) {
-                    heroVisual.classList.add('animate-fade');
-                    heroVisual.style.transitionDelay = '0.2s';
-                    heroVisual.innerHTML = `
-                        <div class="hero-image-wrapper">
-                            <div class="dashed-ring"></div>
-                            <img src="${data.personal.heroImage}" alt="${data.personal.name}" class="hero-avatar">
-                            ${data.personal.heroStats.map((s, i) => `<div class="stat-badge badge-${i+1}"><i class="fa-solid ${s.icon}"></i> ${s.label}</div>`).join('')}
-                        </div>
-                    `;
-                }
-
-                // 3. Render About Section
-                const aboutContent = document.getElementById('about-content-container');
-                if(aboutContent) {
-                    aboutContent.innerHTML = `
-                        <div class="about-text animate-slide-left">
-                            <h2 class="section-heading">Professional Summary</h2>
-                            ${data.personal.summaryLines.map(line => `<p>${line}</p>`).join('')}
-                            <div class="image-collage">
-                                <img src="Image/Image 1.jpg" alt="Professional Work 1">
-                                <img src="Image/Image 2.jpg" alt="Professional Work 2">
-                            </div>
-                        </div>
-                        <div class="about-stats animate-slide-right">
-                            ${data.personal.aboutStats.map(s => `
-                                <div class="stat-card counter-card">
-                                    <div class="num counter-num" data-target="${s.target}">0${s.suffix}</div>
-                                    <div class="desc">${s.desc}</div>
-                                </div>
-                            `).join('')}
-                        </div>
-                    `;
-                }
-
-                // 4. Render Experience Timeline
-                const expTimeline = document.getElementById('experience-timeline');
-                if(expTimeline) {
-                    expTimeline.innerHTML = data.experience.map((exp, i) => `
-                        <div class="timeline-item ${i % 2 === 0 ? 'animate-slide-left' : 'animate-slide-right'}">
-                            <div class="timeline-card">
-                                ${exp.isCurrent ? '<div class="badge-current">CURRENT</div>' : ''}
-                                <h3 class="timeline-role">${exp.role}</h3>
-                                <div class="timeline-company">${exp.company}</div>
-                                <div class="timeline-meta">
-                                    <span><i class="fa-regular fa-calendar"></i> ${exp.date}</span>
-                                    <span><i class="fa-solid fa-location-dot"></i> ${exp.location}</span>
-                                </div>
-                                <ul class="timeline-desc">
-                                    ${exp.desc.map(d => `<li>${d}</li>`).join('')}
-                                </ul>
-                            </div>
-                        </div>
-                    `).join('');
-                }
-
-                // 5. Render Skills
-                const skillsGrid = document.getElementById('skills-grid-container');
-                if(skillsGrid) {
-                    skillsGrid.innerHTML = data.skills.categories.map((cat, i) => `
-                        <div class="skill-card animate-fade" style="transition-delay: ${i * 0.1}s">
-                            <div class="skill-icon"><i class="fa-solid ${cat.icon}"></i></div>
-                            <h3 class="skill-title">${cat.title}</h3>
-                            <div class="skill-tags">
-                                ${cat.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-                            </div>
-                        </div>
-                    `).join('');
-                }
-                const profBars = document.getElementById('proficiency-bars-container');
-                if(profBars) {
-                    profBars.classList.add('animate-fade');
-                    profBars.style.transitionDelay = '0.3s';
-                    profBars.innerHTML = data.skills.proficiency.map(p => `
-                        <div class="bar-item">
-                            <div class="bar-label"><span>${p.label}</span><span>${p.percent}%</span></div>
-                            <div class="bar-bg"><div class="bar-fill skill-bar-fill" data-width="${p.percent}%"></div></div>
-                        </div>
-                    `).join('');
-                }
-
-                // 6. Render Featured Project (Nitex)
-                const featuredContainer = document.getElementById('featured-project-container');
-                const p = data.featuredProject;
-                if(featuredContainer && p) {
-                    featuredContainer.innerHTML = `
-                        <div class="project-card animate-fade">
-                            <div class="project-split">
-                                <div class="project-info">
-                                    <div class="project-header">
-                                        <div>
-                                            <h3 class="project-title">${p.title}</h3>
-                                            <div class="project-company">${p.company} | ${p.date}</div>
-                                        </div>
-                                        <div class="project-badge">${p.status}</div>
-                                    </div>
-                                    <div class="par-grid">
-                                        <div class="par-col"><h4><i class="fa-solid fa-circle-exclamation"></i> Problem</h4><p>${p.problem}</p></div>
-                                        <div class="par-col"><h4><i class="fa-solid fa-bolt"></i> Action</h4><p>${p.action}</p></div>
-                                        <div class="par-col"><h4><i class="fa-solid fa-check-circle"></i> Result</h4><p>${p.result}</p></div>
-                                    </div>
-                                    <div class="project-metrics">${p.metrics.map(m => `<span class="metric">▹ ${m}</span>`).join('')}</div>
-                                </div>
-                                <div class="project-image-box">
-                                    <img src="${p.image}" alt="Featured Project">
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                }
-
-                // 7. Render Behance Gallery
-                const behanceContainer = document.getElementById('behance-grid');
-                if(behanceContainer && data.behanceProjects) {
-                    let bHtml = '';
-                    data.behanceProjects.forEach(bp => {
-                        bHtml += `<div class="behance-card animate-fade"><iframe src="https://www.behance.net/embed/project/${bp.id}?tracking_source=project_owners_profile" allowfullscreen lazyload frameborder="0" allow="clipboard-write" refererPolicy="strict-origin-when-cross-origin"></iframe></div>`;
-                    });
-                    behanceContainer.innerHTML = bHtml;
-                }
-
-                // 8. Render LinkedIn Posts
-                const linkedinContainer = document.getElementById('linkedin-grid');
-                if(linkedinContainer && data.linkedinPosts) {
-                    let lHtml = '';
-                    data.linkedinPosts.forEach(post => {
-                        lHtml += `
-                        <div class="linkedin-native-card animate-fade">
-                            <div class="ln-header">
-                                <img src="Image/Portfolio Picture.jpg" alt="Profile">
-                                <div>
-                                    <h4>${data.personal.name}</h4>
-                                    <span>${post.date}</span>
-                                </div>
-                            </div>
-                            <p class="ln-body">${post.text}</p>
-                            <a href="${post.url}" target="_blank" class="btn btn-secondary ln-btn"><i class="fa-brands fa-linkedin"></i> View on LinkedIn</a>
-                        </div>`;
-                    });
-                    linkedinContainer.innerHTML = lHtml;
-                }
-
-                // 9. Render Education
-                const eduGrid = document.getElementById('education-grid-container');
-                if(eduGrid) {
-                    eduGrid.innerHTML = data.education.degrees.map((edu, i) => `
-                        <div class="edu-card animate-fade" style="transition-delay: ${i * 0.1}s">
-                            <div class="edu-degree">${edu.degree}</div>
-                            <div class="edu-inst">${edu.institution}</div>
-                            <div class="edu-meta"><span>${edu.date}</span><span>${edu.result}</span></div>
-                        </div>
-                    `).join('');
-                }
-                const certsContainer = document.getElementById('certifications-container');
-                if(certsContainer) {
-                    certsContainer.classList.add('animate-fade');
-                    certsContainer.innerHTML = `
-                        <h3>Certifications</h3>
-                        <ul class="cert-list">
-                            ${data.education.certifications.map(c => `<li><span class="cert-name">${c.name}</span><span class="cert-meta">${c.meta}</span></li>`).join('')}
-                        </ul>
-                    `;
-                }
-
-                // 10. Render Languages & Volunteer
-                const langVolContainer = document.getElementById('lang-volunteer-container');
-                if(langVolContainer) {
-                    langVolContainer.innerHTML = `
-                        <div class="animate-slide-left">
-                            <h2 class="section-heading">Languages</h2>
-                            <table class="lang-table">
-                                <thead><tr><th>Language</th><th>Reading</th><th>Writing</th><th>Speaking</th></tr></thead>
-                                <tbody>
-                                    ${data.languages.map(l => `
-                                        <tr>
-                                            <td class="lang-name">${l.name}</td>
-                                            <td><div class="dots">${Array(3).fill(0).map((_, i) => `<div class="dot ${i < l.reading ? 'filled' : ''}"></div>`).join('')}</div></td>
-                                            <td><div class="dots">${Array(3).fill(0).map((_, i) => `<div class="dot ${i < l.writing ? 'filled' : ''}"></div>`).join('')}</div></td>
-                                            <td><div class="dots">${Array(3).fill(0).map((_, i) => `<div class="dot ${i < l.speaking ? 'filled' : ''}"></div>`).join('')}</div></td>
-                                        </tr>
-                                    `).join('')}
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="animate-slide-right">
-                            <h2 class="section-heading">Volunteer</h2>
-                            ${data.volunteer.map(v => `
-                                <div class="volunteer-card">
-                                    <h3>${v.title}</h3><div class="meta">${v.role} | ${v.date}</div>
-                                    <ul><li>${v.desc}</li></ul>
-                                </div>
-                            `).join('')}
-                        </div>
-                    `;
-                }
-
-                // 11. Render Contact Section
-                const contactContainer = document.getElementById('contact-container');
-                if(contactContainer) {
-                    contactContainer.classList.add('animate-fade');
-                    contactContainer.innerHTML = `
-                        <p class="tagline">Open to new opportunities, collaborations, and conversations.</p>
-                        <div class="contact-grid">
-                            <a href="mailto:${data.personal.contact.email}" class="contact-card"><i class="fa-solid fa-envelope"></i><span>${data.personal.contact.email}</span></a>
-                            <a href="https://wa.me/${data.personal.contact.whatsapp}" target="_blank" class="contact-card"><i class="fa-brands fa-whatsapp"></i><span>+${data.personal.contact.phone.replace(/[^0-9]/g, '')}</span></a>
-                            <a href="${data.personal.contact.behance}" target="_blank" class="contact-card"><i class="fa-brands fa-behance"></i><span>${data.personal.contact.behance.split('/').pop()}</span></a>
-                            <a href="${data.personal.contact.linkedin}" target="_blank" class="contact-card"><i class="fa-brands fa-linkedin"></i><span>${data.personal.contact.linkedin.split('/').pop()}</span></a>
-                        </div>
-                        <a href="CV/Md_Tasnim_Sarder_Niloy Updated CV 2026.pdf" download class="btn btn-primary" style="font-size: 1.2rem; padding: 1rem 3rem;">Download CV</a>
-                    `;
-                }
-
-                // 12. Render Footer
-                const footerLeft = document.getElementById('footer-left-container');
-                if(footerLeft) {
-                    footerLeft.innerHTML = `© ${new Date().getFullYear()} ${data.personal.name}. All rights reserved.`;
-                }
-                const footerRight = document.getElementById('footer-right-container');
-                if(footerRight) {
-                    footerRight.innerHTML = `
-                        <a href="mailto:${data.personal.contact.email}"><i class="fa-solid fa-envelope"></i></a>
-                        <a href="https://wa.me/${data.personal.contact.whatsapp}" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-                        <a href="${data.personal.contact.behance}" target="_blank"><i class="fa-brands fa-behance"></i></a>
-                        <a href="${data.personal.contact.linkedin}" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-                    `;
-                }
-            }
-            // ---------------------------------------------
-
-            // Mobile Menu
-            const hamburger = document.querySelector('.hamburger');
+            // --- 1. MOBILE MENU TOGGLE ---
+            const hamburger = document.getElementById('hamburger-btn');
             const navLinks = document.querySelector('.nav-links');
             const navLinksItems = document.querySelectorAll('.nav-links a');
-            
-            hamburger.addEventListener('click', () => { hamburger.classList.toggle('active'); navLinks.classList.toggle('active'); });
-            navLinksItems.forEach(item => { item.addEventListener('click', () => { hamburger.classList.remove('active'); navLinks.classList.remove('active'); }); });
 
-            // Scroll Progress
+            if (hamburger && navLinks) {
+                const toggleMenu = () => {
+                    const isOpen = hamburger.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                    hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                };
+
+                hamburger.addEventListener('click', toggleMenu);
+                navLinksItems.forEach(item => {
+                    item.addEventListener('click', () => {
+                        hamburger.classList.remove('active');
+                        navLinks.classList.remove('active');
+                        hamburger.setAttribute('aria-expanded', 'false');
+                    });
+                });
+            }
+
+            // --- 2. SCROLL PROGRESS BAR ---
             const scrollProgress = document.getElementById('scroll-progress');
-            window.addEventListener('scroll', () => {
-                const totalHeight = document.body.scrollHeight - window.innerHeight;
-                scrollProgress.style.width = `${(window.scrollY / totalHeight) * 100}%`;
-            });
+            if (scrollProgress) {
+                window.addEventListener('scroll', () => {
+                    const totalHeight = document.body.scrollHeight - window.innerHeight;
+                    if (totalHeight > 0) {
+                        scrollProgress.style.width = `${(window.scrollY / totalHeight) * 100}%`;
+                    }
+                }, { passive: true });
+            }
 
-            // Typewriter Effect
-            const textArray = ["Sales & Operations Specialist", "CRM & Data Analytics Expert", "Client Relationship Executive", "Content Strategy Manager"];
-            let textIndex = 0; let charIndex = 0; let isDeleting = false;
+            // --- 3. TYPEWRITER EFFECT ---
             const typewriterElement = document.querySelector('.typewriter-text');
-            function type() {
-                const currentText = textArray[textIndex];
-                if (isDeleting) { typewriterElement.textContent = currentText.substring(0, charIndex - 1); charIndex--; }
-                else { typewriterElement.textContent = currentText.substring(0, charIndex + 1); charIndex++; }
+            const textArray = [
+                "Client Operations & Data Specialist",
+                "Process Automation & CRM",
+                "Client Relationship Manager",
+                "Operations & Growth"
+            ];
+            let textIndex = 0;
+            let charIndex = textArray[0].length;
+            let isDeleting = true;
 
-                let typeSpeed = isDeleting ? 40 : 80;
-                if (!isDeleting && charIndex === currentText.length) { typeSpeed = 2500; isDeleting = true; }
-                else if (isDeleting && charIndex === 0) { isDeleting = false; textIndex = (textIndex + 1) % textArray.length; typeSpeed = 500; }
+            function type() {
+                if (!typewriterElement) return;
+                const currentText = textArray[textIndex];
+
+                if (isDeleting) {
+                    typewriterElement.textContent = currentText.substring(0, charIndex - 1);
+                    charIndex--;
+                } else {
+                    typewriterElement.textContent = currentText.substring(0, charIndex + 1);
+                    charIndex++;
+                }
+
+                let typeSpeed = isDeleting ? 35 : 75;
+
+                if (!isDeleting && charIndex === currentText.length) {
+                    typeSpeed = 2400;
+                    isDeleting = true;
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    textIndex = (textIndex + 1) % textArray.length;
+                    typeSpeed = 450;
+                }
                 setTimeout(type, typeSpeed);
             }
-            if (typewriterElement) setTimeout(type, 1000);
+            if (typewriterElement) {
+                setTimeout(type, 1800);
+            }
 
-            // Observers
+            // --- 4. EXPANDABLE CASE STUDY DRAWER (Bulkly V3) ---
+            const bulklyBtn = document.getElementById('bulkly-toggle');
+            const bulklyDrawer = document.getElementById('bulkly-case-study');
+            if (bulklyBtn && bulklyDrawer) {
+                bulklyBtn.addEventListener('click', () => {
+                    const isExpanded = bulklyDrawer.classList.toggle('open');
+                    bulklyBtn.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+                    const textSpan = bulklyBtn.querySelector('span');
+                    if (textSpan) {
+                        textSpan.textContent = isExpanded ? 'Hide Case Study' : 'Read Full Case Study';
+                    }
+                });
+            }
+
+            // --- 5. STATS COUNT-UP ANIMATION (Task 2a) ---
+            // Values are pre-rendered in HTML as fallback. JS smoothly counts up to target upon entering viewport.
             const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            if (!prefersReducedMotion) {
-                const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+
+            const animateCounter = (el) => {
+                const target = parseFloat(el.getAttribute('data-target'));
+                const suffix = el.getAttribute('data-suffix') || '';
+                if (isNaN(target)) return;
+
+                let current = 0;
+                const duration = 1400;
+                const startTime = performance.now();
+
+                const updateCount = (now) => {
+                    const progress = Math.min((now - startTime) / duration, 1);
+                    // Ease out quad
+                    const eased = 1 - (1 - progress) * (1 - progress);
+                    current = Math.floor(eased * target);
+                    el.textContent = current + suffix;
+
+                    if (progress < 1) {
+                        requestAnimationFrame(updateCount);
+                    } else {
+                        el.textContent = target + suffix;
+                    }
+                };
+                requestAnimationFrame(updateCount);
+            };
+
+            if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+                const observerOptions = { threshold: 0.15, rootMargin: "0px 0px -40px 0px" };
                 const animationObserver = new IntersectionObserver((entries, observer) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
                             entry.target.classList.add('in-view');
 
+                            // If it's a counter card, animate count-up
                             if (entry.target.classList.contains('counter-card')) {
                                 const numEl = entry.target.querySelector('.counter-num');
-                                if(numEl) {
-                                    const target = parseFloat(numEl.getAttribute('data-target'));
-                                    const isPercent = numEl.textContent.includes('%');
-                                    const isPlus = numEl.textContent.includes('+');
-                                    let current = 0;
-                                    const updateCounter = () => {
-                                        const increment = target / 40;
-                                        if (current < target) { current += increment; numEl.textContent = Math.ceil(current) + (isPercent ? '%' : (isPlus ? '+' : '')); requestAnimationFrame(updateCounter); }
-                                        else { numEl.textContent = target + (isPercent ? '%' : (isPlus ? '+' : '')); }
-                                    };
-                                    updateCounter(); 
+                                if (numEl) {
+                                    animateCounter(numEl);
                                 }
                                 entry.target.classList.remove('counter-card');
                             }
 
-                            if (entry.target.classList.contains('skill-bar-fill')) {
-                                entry.target.style.width = entry.target.getAttribute('data-width');
-                                entry.target.classList.remove('skill-bar-fill');
-                            }
                             observer.unobserve(entry.target);
                         }
                     });
                 }, observerOptions);
 
-                // Add a small delay so dynamic items have time to render before being observed
-                setTimeout(() => {
-                    document.querySelectorAll('.animate-fade, .animate-slide-left, .animate-slide-right, .counter-card, .skill-bar-fill').forEach(el => {
-                        animationObserver.observe(el);
-                    });
-                }, 500);
-
+                document.querySelectorAll('.animate-fade, .animate-slide-left, .animate-slide-right, .counter-card').forEach(el => {
+                    animationObserver.observe(el);
+                });
             } else {
-                setTimeout(() => {
-                    document.querySelectorAll('.skill-bar-fill').forEach(el => { el.style.width = el.getAttribute('data-width'); });
-                }, 500);
+                // If reduced motion or no IntersectionObserver, ensure classes are visible immediately
+                document.querySelectorAll('.animate-fade, .animate-slide-left, .animate-slide-right').forEach(el => {
+                    el.classList.add('in-view');
+                });
             }
 
-            // Scroll Spy
-            const sections = document.querySelectorAll('section');
-            const navObserverOptions = { threshold: 0.2, rootMargin: "-10% 0px -50% 0px" };
-            const navObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const id = entry.target.getAttribute('id');
-                        navLinksItems.forEach(link => {
-                            link.classList.remove('active');
-                            if (link.getAttribute('href') === `#${id}`) link.classList.add('active');
-                        });
-                    }
-                });
-            }, navObserverOptions);
-            sections.forEach(sec => navObserver.observe(sec));
+            // --- 6. SCROLL SPY ACTIVE NAV LINK INDICATOR ---
+            const sections = document.querySelectorAll('section[id]');
+            if ('IntersectionObserver' in window && sections.length > 0) {
+                const navObserverOptions = { threshold: 0.25, rootMargin: "-15% 0px -45% 0px" };
+                const navObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const id = entry.target.getAttribute('id');
+                            navLinksItems.forEach(link => {
+                                link.classList.remove('active');
+                                if (link.getAttribute('href') === `#${id}`) {
+                                    link.classList.add('active');
+                                }
+                            });
+                        }
+                    });
+                }, navObserverOptions);
+                sections.forEach(sec => navObserver.observe(sec));
+            }
         });
     </script>
 </body>
